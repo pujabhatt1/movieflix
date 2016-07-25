@@ -27,14 +27,14 @@ public class RoleController {
 		
 	}
 	
-	//get one login
+	
 	@RequestMapping(method = RequestMethod.GET, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Role findOne(@PathVariable("id") String roleId) {
 		return service.findOne(roleId);
 	}
 	
 		
-	//registration: post
+	
 	@RequestMapping(method = RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Role create(@RequestBody Role role) {
 		return service.create(role);

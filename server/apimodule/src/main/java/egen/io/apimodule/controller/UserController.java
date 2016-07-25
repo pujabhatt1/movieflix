@@ -26,12 +26,12 @@ public class UserController {
 		
 	}
 	
-	//get one login
+	
 	@RequestMapping(method = RequestMethod.GET, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public User findOne(@PathVariable("id") String userId) {
 		return service.findOne(userId);
 	}
-	//get one login
+	//login
 		@RequestMapping(method = RequestMethod.POST, path = "login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 		public boolean findUser(@RequestBody User user) {
 			return service.findUser(user);

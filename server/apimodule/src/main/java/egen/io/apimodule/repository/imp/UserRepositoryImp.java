@@ -1,13 +1,17 @@
-package egen.io.apimodule.repository;
+package egen.io.apimodule.repository.imp;
 
 
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
+
 import egen.io.apimodule.entity.User;
+import egen.io.apimodule.repository.UserRepository;
 
 @Repository
 public class UserRepositoryImp implements UserRepository {

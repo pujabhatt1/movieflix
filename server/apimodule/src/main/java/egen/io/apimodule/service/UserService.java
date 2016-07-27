@@ -7,7 +7,7 @@ import egen.io.apimodule.entity.User;
 public interface UserService {
 	public List<User> findAll();
 	public User findOne(String id);
-	public boolean findUser(User user);
+	public boolean authenticate(User user);
 	public User create(User user);
 	public User update(String id, User user);
 	public void delete(String id);

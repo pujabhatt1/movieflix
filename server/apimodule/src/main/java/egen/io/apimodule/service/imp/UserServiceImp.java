@@ -1,4 +1,4 @@
-package egen.io.apimodule.service;
+package egen.io.apimodule.service.imp;
 
 import java.util.List;
 
@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import egen.io.apimodule.entity.User;
 import egen.io.apimodule.exception.UserAlreadyExistsException;
 import egen.io.apimodule.exception.UserNotFoundException;
 import egen.io.apimodule.helper.Md5Hashing;
 import egen.io.apimodule.repository.RoleRepository;
 import egen.io.apimodule.repository.UserRepository;
+import egen.io.apimodule.service.UserService;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -40,7 +40,7 @@ public class UserServiceImp implements UserService {
 
 	
 	@Override
-	public boolean findUser(User user){
+	public boolean authenticate(User user){
 		User existing = repository.findByEmail(user.getEmail());
 		if(existing ==null){
 			//throw new UserNotFoundException("User with email:" + user.getEmail() + " not found");

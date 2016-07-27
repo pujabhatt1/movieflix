@@ -1,4 +1,4 @@
-package egen.io.apimodule.service;
+package egen.io.apimodule.service.imp;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import egen.io.apimodule.exception.RoleNotFoundException;
 import egen.io.apimodule.helper.Md5Hashing;
 import egen.io.apimodule.repository.RoleRepository;
 import egen.io.apimodule.repository.RoleRepository;
+import egen.io.apimodule.service.RoleService;
 
 @Service
 public class RoleServiceImp implements RoleService {

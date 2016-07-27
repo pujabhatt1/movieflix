@@ -1,4 +1,4 @@
-package egen.io.apimodule.repository;
+package egen.io.apimodule.repository.imp;
 
 
 import java.util.List;
@@ -8,8 +8,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import egen.io.apimodule.entity.Role;
+import egen.io.apimodule.repository.RoleRepository;
 @Repository
 public class RoleRepositoryImp implements RoleRepository {
 	@PersistenceContext
@@ -27,19 +29,20 @@ public class RoleRepositoryImp implements RoleRepository {
 	}
 
 	@Override
+	
 	public Role create(Role role) {
 		em.persist(role);
 		return role;
 	}
 
 	@Override
+	
 	public Role update(Role role) {
-		System.out.println("role id"+role.getRoleId());
-		System.out.println("merging");
 		return em.merge(role);
 	}
 
 	@Override
+	
 	public void delete(Role role) {
 		em.remove(role);
 	}

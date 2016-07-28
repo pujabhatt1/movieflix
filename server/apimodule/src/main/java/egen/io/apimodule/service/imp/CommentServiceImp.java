@@ -30,7 +30,9 @@ public class CommentServiceImp implements CommentService {
 	
 		return existing;
 	}
-
+	public List<Comment> findAllCommentsOnMovie(String movieId){
+		return repository.findAllCommentsOnMovie(movieId);
+	}
 	@Override
 	@Transactional
 	public Comment create(Comment comment) {

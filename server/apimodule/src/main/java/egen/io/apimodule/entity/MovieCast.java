@@ -18,9 +18,9 @@ public class MovieCast {
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
 	@GeneratedValue(generator = "customUUID")
 	private String movieCastId;
-	private String Actor;
-	private String Director;
-	private String Writer;
+	private String actor;
+	private String director;
+	private String writer;
 	
 	
 	public String getMovieCastId() {
@@ -29,23 +29,23 @@ public class MovieCast {
 	public void setMovieCastId(String movieCastId) {
 		this.movieCastId = movieCastId;
 	}
-	public String getActors() {
-		return Actor;
+	
+	public String getActor() {
+		return actor;
 	}
 	public void setActor(String actor) {
-		Actor = actor;
+		this.actor = actor;
 	}
 	public String getDirector() {
-		return Director;
+		return director;
 	}
 	public void setDirector(String director) {
-		Director = director;
+		this.director = director;
 	}
 	public String getWriter() {
-		return Writer;
+		return writer;
 	}
 	public void setWriter(String writer) {
-		Writer = writer;
+		this.writer = writer;
 	}
-	
 }

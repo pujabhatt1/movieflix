@@ -16,7 +16,9 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table
 @NamedQueries({ 
-	@NamedQuery(name = "Comment.findAll", query = "SELECT r FROM Role r ")
+	@NamedQuery(name = "Comment.findAll", query = "SELECT c FROM Comment c "),
+	@NamedQuery(name = "Comment.findAllOnMovie", query = "SELECT c FROM Comment c where movie_movieId=:pMovieId "),
+	
 })
 public class Comment {
 	@Id
@@ -26,11 +28,7 @@ public class Comment {
 	
 	
 	@ManyToOne(cascade=CascadeType.REMOVE) 
-	@JoinColumn(name = "id",nullable=true)
 	private User user;
-	
-	
-	
 	public Movie getMovie() {
 		return movie;
 	}
@@ -38,13 +36,11 @@ public class Comment {
 		this.movie = movie;
 	}
 	@ManyToOne(cascade=CascadeType.ALL) 
-	@JoinColumn(name = "movieId",nullable=true)
+	
 	private Movie movie;
 	
-
-	
-	
 	private String commentText;
+	
 	public String getCommentId() {
 		return commentId;
 	}

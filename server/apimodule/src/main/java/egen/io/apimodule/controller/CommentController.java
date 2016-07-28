@@ -28,14 +28,19 @@ public class CommentController {
 		
 	}
 	
-	
+	@RequestMapping(method = RequestMethod.GET, path = "movie{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Comment> findAllCommentsOnMovie(@PathVariable("id") String movieId) {
+		return service.findAllCommentsOnMovie(movieId);
+	}
 	@RequestMapping(method = RequestMethod.GET, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Comment findOne(@PathVariable("id") String commentId) {
 		return service.findOne(commentId);
 	}
 	
-		
 	
+
+		
+	//create
 	@RequestMapping(method = RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Comment create(@RequestBody Comment comment) {
 		return service.create(comment);

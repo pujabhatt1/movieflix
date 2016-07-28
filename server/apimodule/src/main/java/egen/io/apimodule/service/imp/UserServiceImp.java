@@ -63,6 +63,7 @@ public class UserServiceImp implements UserService {
 		if (existing != null) {
 			throw new UserAlreadyExistsException("Email is already in use: " + user.getEmail());
 		}
+		System.out.println("role"+user.getRole().getRoleId());
 		  user.setPassword(md.getMd5Pass(user.getPassword()));
 		return repository.create(user);
 	}

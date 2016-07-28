@@ -25,10 +25,34 @@ public class MovieServiceImp implements MovieService {
 	MovieCastRepository castRepository;
 	@Override
 	public List<Movie> findAll() {
-	
-		return repository.findAll();
+			return repository.findAll();
 	}
-
+	@Override
+	public List<Movie> findMovieByText(String searchText) {
+		
+		return repository.findMovieByText(searchText);
+	}
+	
+	@Override
+	public List<Movie> findMovieByField(String field,String searchText){
+	return repository.findMovieByField(field,searchText);
+}
+	@Override
+	public List<Movie> sortMovieByField(String searchText,String field){
+		return repository.sortMovieByField(searchText,field);
+	}
+	@Override
+	public List<Movie> findMovieByTopRating(String type){
+		return repository.findMovieByTopRating(type);	
+	}
+	@Override
+	public Movie findMovieByImdbId(String imdbId){
+		List<Movie> movieList=repository.findMovieByImdbId(imdbId);	
+		if(movieList!=null && movieList.size()==1){
+		return movieList.get(0);
+		}
+		return null;
+	}
 	@Override
 	public Movie findOne(String id) {
 		Movie existing = repository.findOne(id);
@@ -42,9 +66,7 @@ public class MovieServiceImp implements MovieService {
 	@Override
 	@Transactional
 	public Movie create(Movie movie) {
-		
 		MovieCast movieCast=castRepository.create(movie.getMovieCast());
-		
 		movie.setMovieCast(movieCast);
 		return repository.create(movie);
 	}
@@ -56,7 +78,11 @@ public class MovieServiceImp implements MovieService {
 		if (existing == null) {
 			throw new MovieNotFoundException("Movie with id:" + id + " not found");
 		}
+		MovieCast cast=movie.getMovieCast();
+		cast.setMovieCastId(existing.getMovieCast().getMovieCastId());
+		movie.getMovieCast().setMovieCastId(existing.getMovieCast().getMovieCastId());
 		movie.setMovieId(existing.getMovieId());
+		castRepository.update(cast);
 		return repository.update(movie);
 	}
 

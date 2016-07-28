@@ -14,6 +14,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table
@@ -31,10 +33,36 @@ public class User {
 	@Column(unique = true)
 	private String email;
 	private String password;
-	
-	@ManyToOne(cascade=CascadeType.ALL)  
-	@JoinColumn(name = "roleId",nullable=false)
+	private String city;
+	private String state;
+	private String zip;
+	@ManyToOne
+	 @OnDelete(action = OnDeleteAction.CASCADE)
 	private Role role;
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
+
 	
 	
 	public Role getRole() {
@@ -82,12 +110,9 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", email=" + email + ", password=" + password
+				+ ", city=" + city + ", state=" + state + ", zip=" + zip
 				+ ", role=" + role + "]";
 	}
-	
-	
-	
 
 	
-
 }

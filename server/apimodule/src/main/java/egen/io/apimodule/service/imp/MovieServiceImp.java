@@ -11,6 +11,7 @@ import egen.io.apimodule.entity.MovieCast;
 import egen.io.apimodule.entity.Movie;
 import egen.io.apimodule.entity.User;
 import egen.io.apimodule.exception.MovieNotFoundException;
+import egen.io.apimodule.exception.RatingNotFoundException;
 import egen.io.apimodule.exception.UserAlreadyExistsException;
 import egen.io.apimodule.exception.UserNotFoundException;
 import egen.io.apimodule.repository.MovieCastRepository;
@@ -45,6 +46,7 @@ public class MovieServiceImp implements MovieService {
 	public List<Movie> findMovieByTopRating(String type){
 		return repository.findMovieByTopRating(type);	
 	}
+	
 	@Override
 	public Movie findMovieByImdbId(String imdbId){
 		List<Movie> movieList=repository.findMovieByImdbId(imdbId);	
@@ -53,6 +55,7 @@ public class MovieServiceImp implements MovieService {
 		}
 		return null;
 	}
+	
 	@Override
 	public Movie findOne(String id) {
 		Movie existing = repository.findOne(id);

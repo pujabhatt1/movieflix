@@ -29,17 +29,19 @@ public class Comment {
 	
 	@ManyToOne(cascade=CascadeType.REMOVE) 
 	private User user;
+	@ManyToOne 
+    private Movie movie;
+	
+	private String commentText;
 	public Movie getMovie() {
 		return movie;
 	}
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
-	@ManyToOne(cascade=CascadeType.ALL) 
 	
-	private Movie movie;
 	
-	private String commentText;
+	
 	
 	public String getCommentId() {
 		return commentId;

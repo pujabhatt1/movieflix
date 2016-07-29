@@ -3,6 +3,7 @@ package egen.io.apimodule.entity;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -51,6 +52,7 @@ public class Movie {
 	private String metascore;
 	private String imdbRating;
 	private String imdbVotes;
+	@Column(unique = true)
 	private String imdbId;
 	private String type;
 	private String awards;	

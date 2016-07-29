@@ -10,47 +10,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import egen.io.apimodule.entity.Comment;
-import egen.io.apimodule.service.CommentService;
-
-
+import egen.io.apimodule.entity.Rating;
+import egen.io.apimodule.service.RatingService;
 @RestController
-@RequestMapping(path = "comments")
-public class CommentController {
-
+@RequestMapping(path = "ratings")
+public class RatingController {
 	@Autowired
-	CommentService service;
+	RatingService service;
 
 	//get all
 	@RequestMapping(method = RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Comment> findAll() {
+	public List<Rating> findAll() {
 		return service.findAll();
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "movie/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Comment> findAllCommentsOnMovie(@PathVariable("id") String movieId) {
-		return service.findAllCommentsOnMovie(movieId);
+	@RequestMapping(method = RequestMethod.GET, path = "avg/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public double findAvgRatingsOnMovie(@PathVariable("id") String movieId) {
+		return service.findAvgRatingsOnMovie(movieId);
 	}
 	@RequestMapping(method = RequestMethod.GET, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Comment findOne(@PathVariable("id") String commentId) {
-		return service.findOne(commentId);
+	public Rating findOne(@PathVariable("id") String ratingId) {
+		return service.findOne(ratingId);
 	}
 	
 	//create
 	@RequestMapping(method = RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Comment create(@RequestBody Comment comment) {
-		return service.create(comment);
+	public Rating create(@RequestBody Rating rating) {
+		return service.create(rating);
+		
 	}
 	
 	//update
 	@RequestMapping(method = RequestMethod.PUT, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Comment update(@PathVariable("id") String commentId, @RequestBody Comment comment) {
-		return service.update(commentId, comment);
+	public Rating update(@PathVariable("id") String ratingId, @RequestBody Rating rating) {
+		return service.update(ratingId, rating);
 	}
  //delete
 	@RequestMapping(method = RequestMethod.DELETE, path = "{id}")
-	public void delete(@PathVariable("id") String commentId) {
-		service.delete(commentId);
+	public void delete(@PathVariable("id") String ratingId) {
+		service.delete(ratingId);
 	}
 }

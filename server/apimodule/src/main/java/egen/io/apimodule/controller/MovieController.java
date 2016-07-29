@@ -56,7 +56,8 @@ public class MovieController {
 		 	  return service.sortMovieByField(searchText, field);
 
 	}
- //detail
+	
+ //get movie detail
 	@RequestMapping(method = RequestMethod.GET, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie findOne(@PathVariable("id") String movieId) {
 		return service.findOne(movieId);

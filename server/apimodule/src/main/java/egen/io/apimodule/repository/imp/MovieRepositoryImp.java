@@ -99,6 +99,8 @@ public class MovieRepositoryImp implements MovieRepository {
 		query.setParameter("pImdbId", imdbId);
 		return query.getResultList();
 	}
+
+	
 	@Override
 	
 	public Movie create(Movie movie) {

@@ -10,6 +10,7 @@ public interface MovieService {
 	public List<Movie> findMovieByField(String field,String searchText);
 	public List<Movie> sortMovieByField(String searchText,String field);
 	public List<Movie> findMovieByTopRating(String type);
+	
 	public Movie findMovieByImdbId(String imdbId);
 	public Movie findOne(String id);
 	public Movie create(Movie movie);

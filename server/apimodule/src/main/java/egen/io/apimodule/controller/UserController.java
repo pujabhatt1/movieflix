@@ -34,15 +34,7 @@ public class UserController {
 		return service.findOne(userId);
 	}
 
-	// login
-	@RequestMapping(method = RequestMethod.POST, path = "login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public boolean authenticate(@RequestBody User user, HttpSession session) {
-		boolean isValidUser = service.authenticate(user);
-		if (isValidUser) {
-			session.setAttribute("user", user);
-		}
-		return isValidUser;
-	}
+	
 
 	// logout
 	@RequestMapping(method = RequestMethod.GET, path = "logout")
@@ -52,12 +44,6 @@ public class UserController {
 			session.invalidate();
 		}
 		// return "redirect:/login.html";
-	}
-
-	// signup(registration)
-	@RequestMapping(method = RequestMethod.POST, path = "signup", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public User create(@RequestBody User user) {
-		return service.create(user);
 	}
 
 	// update

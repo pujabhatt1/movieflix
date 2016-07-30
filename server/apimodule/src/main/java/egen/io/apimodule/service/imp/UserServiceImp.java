@@ -88,5 +88,10 @@ public class UserServiceImp implements UserService {
 		}
 		repository.delete(existing);
 	}
+
+	@Override
+	public User findByEmail(String email) {
+		return repository.findByEmail(email);
+	}
 	
 }

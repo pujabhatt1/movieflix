@@ -9,6 +9,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import egen.io.apimodule.tokenhandler.TokenHandler;
 
+
+
 public class AdminInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override

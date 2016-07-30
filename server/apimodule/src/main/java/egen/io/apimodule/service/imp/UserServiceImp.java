@@ -14,7 +14,7 @@ import egen.io.apimodule.repository.RoleRepository;
 import egen.io.apimodule.repository.UserRepository;
 import egen.io.apimodule.service.UserService;
 
-@Service
+@Service("userService")
 public class UserServiceImp implements UserService {
 	@Autowired
 	UserRepository repository;

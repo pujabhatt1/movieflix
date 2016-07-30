@@ -38,11 +38,8 @@ public class UserController {
 
 	// logout
 	@RequestMapping(method = RequestMethod.GET, path = "logout")
-	public void logout(HttpSession session) {
-		User user = (User) session.getAttribute("user");
-		if (user.getEmail().length() > 0) {
-			session.invalidate();
-		}
+	public void logout() {
+		
 		// return "redirect:/login.html";
 	}
 

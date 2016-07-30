@@ -34,8 +34,8 @@ public class LoggingInterceptor implements HandlerInterceptor {
 			TokenHandler obj = new TokenHandler();
 			Map<String, Object> claims = obj.verifyToken(jwt);
 			System.out.println(claims);
-			System.out.println("size" + claims.size());
-			if (claims.size() == 0) {
+			
+			if (claims==null) {
 				throw new UserNotFoundException(
 						"User not found or expired!!please login with other valid email and password");
 			} else {

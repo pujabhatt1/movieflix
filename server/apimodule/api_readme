@@ -1,0 +1,31 @@
+API: Readme.
+
+
+How to use
+
+
+First add role:
+{“name:”User”}                          //User or Admin
+
+Sign UP User
+{"firstName": "puja","lastName": "bhatt","email":"sabi@gmail.com","password":"123456", "role":{"roleId":"eea65dc8-714f-4c17-ab1c-1fa74742905e"}}
+
+Login:
+{"email":"puja@gmail.com","password":"123456"}
+
+Login will return token.
+
+Token is to be set in header as key jwt
+Json to add User
+
+
+
+To add movie
+
+{"title":"star wars II","year":"1986","rated":"yes", "released":"today","runtime": "1 hour 40 minutes","movieCast":{"actor":"jennifer kari","director":"chhabi ali","writer":"dipak giri,dipa niraula"},"genre":"Action,romance","plot":"Kathmandu","language":"Nepali, English","country":"country","poster":"myposter","metascore":"5","imdbRating":"5","imdbVotes":"4","imdbId":"554","type":"movie","awards":"Academy"}
+
+To add Comment
+{"commentText":"jennifer looks great in this movie!!","user":{"id":"cea87f94-7880-4ab8-bb50-82b692b725dd"},"movie":{"movieId":"e0b2b7dd-820f-476c-97e1-867f72f1c70d"}}
+
+TO add rating
+{"ratingNum":5,"user":[{"id":"0d66607f-c78b-4b9a-b3a4-97ff7ceacb02"}], "movie":[{"movieId":"a2cf4d26-61e1-4ec2-bca9-866eb0238b1f"}]}

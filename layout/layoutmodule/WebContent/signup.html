@@ -1,0 +1,109 @@
+  <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+     <link href="css/signup.css" rel="stylesheet">
+     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+<div class="container">
+            <form class="form-horizontal" role="form" data-toggle="validator">
+                <h2>Registration Form</h2>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">first Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="firstName" placeholder="First Name" class="form-control" required autofocus>
+                        <span class="help-block">First Name, First Name, eg.: Smith</span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="lastName" placeholder="Last Name" class="form-control" required autofocus>
+                        <span class="help-block">Last Name, First Name, eg.: Harry</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" placeholder="Email" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="password" placeholder="Password" class="form-control" required>
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">ConfirmPassword</label>
+                    <div class="col-sm-9">
+                 <input type="password" class="form-control" id="passwordConfirm" data-match="#password" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+              <div class="help-block with-errors"></div>
+      
+             </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city" class="col-sm-3 control-label">City</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="city" class="form-control">
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <label for="state" class="col-sm-3 control-label">State</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="state" class="form-control">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="zipcode" class="col-sm-3 control-label">zipCode</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="zipcode" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="country" class="col-sm-3 control-label">Country</label>
+                    <div class="col-sm-9">
+                        <select id="country" class="form-control">
+                            <option>United States</option>
+                            <option>Bahamas</option>
+                            <option>Cambodia</option>
+                            <option>Denmark</option>
+                            <option>Ecuador</option>
+                            <option>Fiji</option>
+                            <option>Gabon</option>
+                            <option>Haiti</option>
+                        </select>
+                    </div>
+                </div> <!-- /.form-group -->
+              
+              
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">I accept <a href="#">terms</a>
+                            </label>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+        
+          <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/validator.js"></script>
+   

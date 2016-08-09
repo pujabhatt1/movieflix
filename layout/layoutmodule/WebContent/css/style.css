@@ -1,5 +1,5 @@
 .container h1,h2{
-	    
+ color:	#009dff; 
 }
 .navbar{
 	background-color:#009dff;
@@ -41,4 +41,11 @@
 }
 .btn-block{width:100px;}
 .sortbuttons{float:right;}
-
+.show-button{
+	margin-left:500px;
+    background-color: #337ab7;
+	color:#fff;
+}
+.not-active a{
+	color:#fff !important;
+}

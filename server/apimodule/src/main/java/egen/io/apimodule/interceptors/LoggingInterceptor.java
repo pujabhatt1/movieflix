@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.NotAuthorizedException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,37 +17,41 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import egen.io.apimodule.entity.User;
+import egen.io.apimodule.exception.InvalidTokenException;
+import egen.io.apimodule.exception.TokenNotFoundException;
 import egen.io.apimodule.exception.UserNotFoundException;
+import egen.io.apimodule.service.TokenService;
 import egen.io.apimodule.service.UserService;
 import egen.io.apimodule.tokenhandler.TokenHandler;
 
 public class LoggingInterceptor implements HandlerInterceptor {
 	@Autowired
 	private UserService userService;
-
+	@Autowired
+	private TokenService tokenService;
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		System.out.println("---Before Method Execution---");
-		String jwt = getJwtFromHeader(request);
-		System.out.println(jwt);
+		String token = request.getHeader("token");
+		
+		  if (token == null) {
+	            throw new InvalidTokenException("Token header must be provided");
+	        }
+		
+		  else if(!tokenService.isValidToken(token)){
+			  throw new TokenNotFoundException("Invalid token");
+		  }
 		try {
 			TokenHandler obj = new TokenHandler();
-			Map<String, Object> claims = obj.verifyToken(jwt);
+			Map<String, Object> claims = obj.verifyToken(token);
 			System.out.println(claims);
 			
 			if (claims==null) {
 				throw new UserNotFoundException(
 						"User not found or expired!!please login with other valid email and password");
 			} else {
-				Iterator it = claims.entrySet().iterator();
-				while (it.hasNext()) {
-					Map.Entry pair = (Map.Entry) it.next();
-					System.out.println(pair.getKey() + " = " + pair.getValue());
-					if (pair.getKey().equals("email")) {
-						validateEmail(pair.getValue().toString());
-					}
-				}
+				parseClaimAndValidateEmail(claims);
 			}
 		} catch (SignatureException e) {
 			System.out.println("ther is signature exception");
@@ -55,31 +60,38 @@ public class LoggingInterceptor implements HandlerInterceptor {
 		return true;
 	}
 
-	@Override
-	public void postHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-		// System.out.println("---method executed---");
+	public void parseClaimAndValidateEmail(Map<String, Object> claims){
+	Iterator it = claims.entrySet().iterator();
+	while (it.hasNext()) {
+		Map.Entry pair = (Map.Entry) it.next();
+		System.out.println(pair.getKey() + " = " + pair.getValue());
+		if (pair.getKey().equals("email")) {
+			validateEmail(pair.getValue().toString());
+		}
 	}
-
-	@Override
-	public void afterCompletion(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception ex)
-			throws Exception {
-		// System.out.println("---Request Completed---");
 	}
-
-	private String getJwtFromHeader(HttpServletRequest request) {
-		return request.getHeader("jwt");
-	}
-
 	public void validateEmail(String email) {
-		System.out.println("came at validation" + email);
 		User existing = userService.findByEmail(email);
 		System.out.println("validate" + existing);
 		if (existing == null) {
 			throw new UserNotFoundException(
 					"User not found!!please login with other valid email and password");
 		}
+	}
+	
+	
+	
+	@Override
+	public void postHandle(HttpServletRequest request,
+			HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		
+	}
+
+	@Override
+	public void afterCompletion(HttpServletRequest request,
+			HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
+		
 	}
 }

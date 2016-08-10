@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import egen.io.apimodule.entity.Token;
 import egen.io.apimodule.entity.User;
+import egen.io.apimodule.helper.AuthResult;
+import egen.io.apimodule.service.TokenService;
 import egen.io.apimodule.service.UserService;
 
 @RestController
@@ -21,6 +24,8 @@ public class UserController {
 
 	@Autowired
 	UserService service;
+	@Autowired
+	TokenService tokenService;
 
 	// get all
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -34,13 +39,17 @@ public class UserController {
 		return service.findOne(userId);
 	}
 
-	
-
 	// logout
-	@RequestMapping(method = RequestMethod.GET, path = "logout")
-	public void logout() {
-		
-		// return "redirect:/login.html";
+	@RequestMapping(method = RequestMethod.POST, path = "logout")
+	public void logout(@RequestBody AuthResult authResult) {
+		String token=authResult.getToken();
+		Token tokenObj = tokenService.findByToken(token);
+		if (tokenObj != null) {
+			String tokenId = tokenObj.getId();
+			if (tokenId != null && tokenId != "") {
+				tokenService.delete(tokenId);
+			}
+		}
 	}
 
 	// update

@@ -48,7 +48,7 @@ public class TokenHandler {
 		final String secret = "{{My secret word}}";
 
 		final long iat = System.currentTimeMillis() / 1000l; // issued at claim
-		final long exp = iat + 360L; // expires claim. In this case the token
+		final long exp = iat + 3600L; // expires claim. In this case the token
 										// expires in 360 seconds
 
 		final JWTSigner signer = new JWTSigner(secret);

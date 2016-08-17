@@ -1,0 +1,22 @@
+<input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Profile Pic</th>
+        <th ng-click="movieVm.sorter.sortBy='title'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Title</th>
+        <th ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Imdb Votes</th>
+        <th ng-click="movieVm.sorter.sortBy='movieCast.director'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Director</th>
+        <th ng-click="movieVm.sorter.sortBy='movieCast.actor'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Actor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="movie in movieVm.movies | filter:movieVm.searchText | orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
+        <td>
+            <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
+        </td>
+        <td> {{movie.imdbVotes}}</td>
+        <td>{{movie.movieCast.director}}</td>
+        <td>{{movie.movieCast.actor}}</td>
+    </tr>
+    </tbody>
+</table>

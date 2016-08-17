@@ -1,0 +1,29 @@
+body {
+    font-size: 14px;
+}
+
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+}
+
+
+.error {
+    color: red;
+    margin: 0;
+}
+
+section {
+    margin: 40px 0;
+    min-height: 400px;
+}
+.form-group label{
+    float:left;
+}
+input[type=email],input[type=password],input[type=select]{
+    width: 13em;
+}
+select{
+    width:13em !important;
+}

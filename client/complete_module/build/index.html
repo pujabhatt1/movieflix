@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movieflix">
+<head>
+  <meta charset="UTF-8">
+  <title>ui-seed</title>
+
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/min/entireframework.min.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+  <!-- endinject -->
+
+  <!-- vendor:css -->
+  <!-- endinject -->
+
+  <!-- inject:css -->
+  <link rel="stylesheet" href="styles/business-card.css">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/users.css">
+  <!-- endinject -->
+
+  <!-- app:css -->
+  <!-- endinject -->
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <ul class="nav nav-pills">
+
+          <li>
+            <a href="#/login">Login</a>
+          </li>
+          <li>
+            <a href="#/add-user">Sign Up</a>
+          </li>
+
+          <li>
+            <a href="#/resources">Resources</a>
+          </li>
+          <li>
+            <a href="#/users">Users</a>
+          </li>
+            <li>
+                <a href="#/add-movie">Add Movie</a>
+            </li>
+            <li>
+                <a href="#/movie-list">List Movies</a>
+            </li>
+            <li>
+                <a href="#/movie-detail">Movie Detail</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section ng-view>
+
+  </section>
+  <footer>
+    <div class="container">
+      &copy; Egen Solutions, Inc.
+    </div>
+  </footer>
+
+  <!-- bower:js -->
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <!-- endinject -->
+
+  <!-- vendor:js -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <script src="app/app.js"></script>
+  <script src="app/services/user.service.js"></script>
+  <script src="app/services/resource.service.js"></script>
+  <script src="app/services/movie.service.js"></script>
+  <script src="app/services/auth.service.js"></script>
+  <script src="app/directives/confirm-password.js"></script>
+  <script src="app/directives/business-card.directive.js"></script>
+  <script src="app/controllers/users.controller.js"></script>
+  <script src="app/controllers/user-detail.controller.js"></script>
+  <script src="app/controllers/resources.controller.js"></script>
+  <script src="app/controllers/movie.controller.js"></script>
+  <script src="app/controllers/movie-detail.controller.js"></script>
+  <script src="app/controllers/auth.controller.js"></script>
+  <script src="app/app.constant.js"></script>
+  <!-- endinject -->
+
+  <!-- app:js -->
+  <!-- endinject -->
+</body>
+</html>

@@ -1,0 +1,18 @@
+.businesscard {
+    width: 400px;
+    border: 4px solid #374B67;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 2px 2px 4px #ABABAB;
+    border-radius: 2px;
+}
+
+.businesscard h3, .businesscard h4 {
+    margin: 0;
+}
+
+.businesscard h3 {
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}

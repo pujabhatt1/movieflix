@@ -1,0 +1,82 @@
+<div class="container">
+<form name="userForm" ng-submit="userForm.$setPristine(); authVm.addUser()" novalidate>
+<div class="form-group">
+        <label for="firstName" class="col-sm-3 control-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" ng-model="authVm.newUser.firstName" required minlength="4">
+        <div ng-messages="userForm.firstName.$error" ng-if="userForm.firstName.$dirty">
+            <p ng-message="required" class="error">First Name is required</p>
+            <p ng-message="minlength" class="error">First Name has to be at least 4 chars</p>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+        <input  type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" ng-model="authVm.newUser.lastName" required minlength="4">
+        <div ng-messages="userForm.lastName.$error" ng-if="userForm.lastName.$dirty">
+            <p ng-message="required" class="error">Last Name is required</p>
+            <p ng-message="minlength" class="error">Last Name has to be at least 4 chars</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email" ng-model="authVm.newUser.email" required>
+        <div ng-messages="userForm.email.$error" ng-if="userForm.email.$dirty">
+            <p ng-message="required" class="error">Email is required</p>
+            <p ng-message="email" class="error">Email is invalid</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">Password</label>
+
+            <input type="password" name="password" id="password" placeholder="Password" class="form-control" ng-model="authVm.newUser.password" required>
+        <div ng-messages="userForm.password.$error" ng-if="userForm.password.$dirty">
+            <p ng-message="required" class="error">Password is required</p>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">ConfirmPassword</label>
+
+            <input type="password" name="passwordConfirm" class="form-control" id="passwordConfirm" ng-model="authVm.newUser.passwordConfirm" placeholder="Confirm" required compare-to="authVm.newUser.password">
+        <div ng-messages="userForm.passwordConfirm.$error">
+            <p ng-message="compareTo" class="error">Must match the previous entry</p>
+            </div>
+        </div>
+    <div class="form-group">
+        <label for="city" class="col-sm-3 control-label">City</label>
+        <input type="text" class="form-control" id="city" name="city" placeholder="City" ng-model="authVm.newUser.city">
+
+    </div>
+    <div class="form-group">
+        <label for="state" class="col-sm-3 control-label">State</label>
+        <input type="text" class="form-control" id="state" name="state" placeholder="State" ng-model="authVm.newUser.state">
+
+    </div>
+    <div class="form-group">
+        <label for="zip" class="col-sm-3 control-label">ZipCode</label>
+        <input type="text" class="form-control" id="zip" name="state" placeholder="ZipCode" ng-model="authVm.newUser.zip">
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="role" class="col-sm-3 control-label" >Role</label>
+
+            <select ng-repeat="role in authVm.roles" id="role" class="form-control" ng-model="authVm.newUser.role.roleId" required>
+                     <option value="{{role.roleId}}"> {{role.name}}</option>
+             </select>
+            <div ng-messages="userForm.role.$error">
+                <p ng-message="required" class="erro">Select Role</p>
+            </div>
+
+    </div> <!-- /.form-group -->
+
+
+    <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+</form>
+
+</div>
+
+
+

@@ -2,11 +2,13 @@
   'use strict';
 
   angular
-    .module('movieflix', ['ngMessages','ngRoute'])
+    .module('movieflix', ['ngMessages','ngRoute','LocalStorageModule'])
     .config(moduleConfig)
     .run(moduleRun);
-
-  function moduleConfig($routeProvider) {
+    moduleConfig.$inject = ['$routeProvider','localStorageServiceProvider'];
+  function moduleConfig($routeProvider,localStorageServiceProvider) {
+      localStorageServiceProvider
+          .setStorageType('localStorage');
 
     $routeProvider
       .when('/users', {
@@ -44,6 +46,24 @@
           controllerAs: 'movieVm'
         })
 
+        .when('/movie-list-all', {
+            templateUrl: 'app/views/movie-list-all.tmpl.html',
+            controller: 'MovieController',
+            controllerAs: 'movieVm'
+        })
+
+        .when('/movie-list/:field/:txt', {
+            templateUrl: 'app/views/movie-list.tmpl.html',
+            controller: 'findMovieController',
+            controllerAs: 'movieVm'
+        })
+
+        .when('/movie-list/type/:type', {
+            templateUrl: 'app/views/movie-list.tmpl.html',
+            controller: 'MovieTypeController',
+            controllerAs: 'movieVm'
+        })
+
         .when('/movie-detail/:id', {
             templateUrl: 'app/views/movie-detail.tmpl.html',
             controller: 'MovieDetailController',
@@ -58,6 +78,27 @@
         .when('/add-movie', {
             templateUrl: 'app/views/add-movie.tmpl.html',
             controller: 'MovieController',
+            controllerAs: 'movieVm'
+        })
+        .when('/delete-movie/:id', {
+            templateUrl: 'app/views/movie-list.tmpl.html',
+            controller: 'MovieDeleteController',
+            controllerAs: 'movieVm'
+        })
+
+        .when('/add-comment/:id', {
+            templateUrl: 'app/views/add-comment.tmpl.html',
+            controller: 'CommentController',
+            controllerAs: 'commentVm'
+        })
+
+        .when('/add-rating/:id', {
+            controller: 'RatingController',
+            controllerAs: 'ratingVm'
+        })
+        .when('/add-movie/:id', {
+            templateUrl: 'app/views/update-movie.tmpl.html',
+            controller: 'MovieUpdateController',
             controllerAs: 'movieVm'
         })
 

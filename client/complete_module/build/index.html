@@ -48,6 +48,9 @@
                 <a href="#/movie-list">List Movies</a>
             </li>
             <li>
+                <a href="#/movie-list-all">List all Movies</a>
+            </li>
+            <li>
                 <a href="#/movie-detail">Movie Detail</a>
             </li>
         </ul>
@@ -68,6 +71,7 @@
   <script src="/bower_components/angular-route/angular-route.js"></script>
   <script src="/bower_components/angular-messages/angular-messages.js"></script>
   <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
   <!-- endinject -->
 
   <!-- vendor:js -->
@@ -77,16 +81,22 @@
   <script src="app/app.js"></script>
   <script src="app/services/user.service.js"></script>
   <script src="app/services/resource.service.js"></script>
+  <script src="app/services/rating.service.js"></script>
   <script src="app/services/movie.service.js"></script>
+  <script src="app/services/comment.service.js"></script>
   <script src="app/services/auth.service.js"></script>
-  <script src="app/directives/confirm-password.js"></script>
-  <script src="app/directives/business-card.directive.js"></script>
   <script src="app/controllers/users.controller.js"></script>
   <script src="app/controllers/user-detail.controller.js"></script>
   <script src="app/controllers/resources.controller.js"></script>
+  <script src="app/controllers/rating.controller.js"></script>
   <script src="app/controllers/movie.controller.js"></script>
+  <script src="app/controllers/movie-update.controller.js"></script>
   <script src="app/controllers/movie-detail.controller.js"></script>
+  <script src="app/controllers/find-movie.controller.js"></script>
+  <script src="app/controllers/comments.controller.js"></script>
   <script src="app/controllers/auth.controller.js"></script>
+  <script src="app/directives/confirm-password.js"></script>
+  <script src="app/directives/business-card.directive.js"></script>
   <script src="app/app.constant.js"></script>
   <!-- endinject -->
 

@@ -6,13 +6,13 @@
  angular.module('movieflix')
         .service('authService', authService);
 
-    authService.$inject = ['$http', '$q', '$window'];
+    authService.$inject = ['$http', '$q','localStorageService', '$window'];
 
-    function authService($http, $q, $window) {
+    function authService($http, $q,localStorageService, $window) {
 
         var self = this;
         self.checkUser=checkUser;
-
+        self.setHeader=setHeader;
 
 
         function checkUser(loginUser){
@@ -24,15 +24,20 @@
 
                     if (response.token) {
                         console.log("inside token");
-                        $window.localStorage.currentUser = { loginUser: loginUser, authtoken: response.token };
-                        $http.defaults.headers.common.Authorization = 'Bearer ' + response.token ;
-                        console.log($http.defaults.headers.common.Authorization);
-                        return true
+                         localStorageService.set("uId", response.userId);
+                        console.log(localStorageService.get("uId"));
+                        localStorageService.set("auth-token",response.token);
+                        $http.defaults.headers.common.Authorization = 'Bearer ' +  localStorageService.get("auth-token") ;
+                        $http.defaults.headers.common['Content-Type']="application/json";
+                        $http.defaults.headers.common.userId = response.userId;
+                       return true
                     }
                 });
         }
 
-
+        function setHeader(loginUser){
+            $http.defaults.headers.common.Authorization = 'Bearer ' +  localStorageService.get("auth-token") ;
+        }
 
         function errorFn(response) {
             return $q.reject('ERROR: ' + response.statusText);

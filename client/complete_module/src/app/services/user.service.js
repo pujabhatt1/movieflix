@@ -4,9 +4,9 @@
   angular.module('movieflix')
     .service('userService', userService);
 
-  userService.$inject = ['$http', '$q', 'CONFIG'];
+  userService.$inject = ['$http', '$q', 'CONFIG','authService'];
 
-  function userService($http, $q, CONFIG) {
+  function userService($http, $q, CONFIG,authService) {
 
     var self = this;
 
@@ -14,9 +14,13 @@
     self.getUserById = getUserById;
     self.getRoles=getRoles;
     self.createUser=createUser;
+    init();
+    function init(){
+      authService.setHeader();
+    }
 
     function getUsers() {
-        return $http.get(CONFIG.API_HOST + '/users')
+    return $http.get(CONFIG.API_HOST + '/users')
             .then(successFn, errorFn);
 
     }

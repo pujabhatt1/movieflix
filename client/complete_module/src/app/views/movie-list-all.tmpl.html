@@ -1,11 +1,26 @@
-<input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
+<form name="searchForm" ng-submit="searchForm.$setPristine(); searchForm.searchMovie()" novalidate>
 
+    <div class="form-group">
+        <label for="searchtxt" class="col-sm-3 control-label"> Movie Title</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="searchtxt" name="searchtxt" placeholder="searchtxt" ng-model="movieVm.searchtxt">
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" class="btn btn-primary btn-block">Add</button>
+        </div>
+    </div>
+</form>
 <div>
     <a href="#/movie-list/genre/action">Action Movies</a>
     <a href="#/movie-list/genre/drama">Drama Movies</a>
     <a href="#/movie-list/type/movie"/>Movies</a>
     <a href="#/movie-list/type/series"/>Series</a>
-    <a href="">TopratedMovie or series</a>
+
 </div>
 <table class="table table-striped">
     <thead>

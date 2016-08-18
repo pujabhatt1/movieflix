@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="movieForm" ng-submit="movieForm.$setPristine(); movieVm.updateMovie()" novalidate>
+
+    <div class="form-group">
+        <label for="title" class="col-sm-3 control-label"> Movie Title</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title" ng-model="movieVm.newMovie.title" required>
+            <div ng-messages="movieForm.title.$error" ng-if="movieForm.title.$dirty">
+                <p ng-message="required" class="error">Title  is required</p>
+                <p ng-message="minlength" class="error">Title has to be at least 4 chars</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="imdbRating" class="col-sm-3 control-label">ImdbRating</label>
+        <div class="col-sm-9">
+            <input type="text" id="imdbRating" name="imdbRating" placeholder="imdbRating" class="form-control" ng-model="movieVm.newMovie.imdbRating"  required>
+            <div ng-messages="movieForm.imdbRating.$error" ng-if="movieForm.imdbRating.$dirty">
+                <p ng-message="required" class="error">ImdbRating  is required</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="metaScore" class="col-sm-3 control-label">Metascore</label>
+        <div class="col-sm-9">
+            <input type="text" id="metascore" name="metascore" placeholder="metascore" class="form-control" ng-model="movieVm.newMovie.metascore"  required>
+            <div ng-messages="movieForm.metascore.$error" ng-if="movieForm.metascore.$dirty">
+                <p ng-message="required" class="error">metaScore  is required</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="imdbVotes" class="col-sm-3 control-label">ImdbVotes</label>
+        <div class="col-sm-9">
+            <input type="text" id="imdbVotes" name="imdbVotes" placeholder="ImdbVotes" class="form-control" ng-model="movieVm.newMovie.imdbVotes"  required>
+            <div ng-messages="movieForm.imdbVotes.$error" ng-if="movieForm.imdbVotes.$dirty">
+                <p ng-message="required" class="error">ImdbVotes  is required</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="imdbId" class="col-sm-3 control-label">ImdbId</label>
+        <div class="col-sm-9">
+            <input type="text" id="imdbId" name="imdbId" placeholder="metaScore" class="form-control" ng-model="movieVm.newMovie.imdbId"  required>
+            <div ng-messages="movieForm.imdbId.$error" ng-if="movieForm.imdbId.$dirty">
+                <p ng-message="required" class="error">metaScore  is required</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Language" class="col-sm-3 control-label">Language</label>
+        <div class="col-sm-9">
+            <input type="text" id="language" name="language" placeholder="Languages" class="form-control" ng-model="movieVm.newMovie.language"  required>
+            <div ng-messages="movieForm.language.$error" ng-if="movieForm.language.$dirty">
+                <p ng-message="required" class="error">Title  is required</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="poster" class="col-sm-3 control-label">Poster</label>
+        <div class="col-sm-9">
+            <input type="text" id="poster" name="poster" placeholder="poster" class="form-control" ng-model="movieVm.newMovie.poster"  required >
+            <div ng-messages="movieForm.poster.$error" ng-if="movieForm.poster.$dirty">
+                <p ng-message="required" class="error">Poster  is required</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="plot" class="col-sm-3 control-label">Plot</label>
+        <div class="col-sm-9">
+            <textarea class="form-control" id="plot" name="plot" rows="3" placeholder="plot" ng-model="movieVm.newMovie.plot" ></textarea>
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="genre" class="col-sm-3 control-label">Genre</label>
+        <div class="col-sm-9">
+            <input type="text" id="genre" name="genre" placeholder="genre" class="form-control" ng-model="movieVm.newMovie.genre"  required>
+            <div ng-messages="movieForm.genre.$error" ng-if="movieForm.genre.$dirty">
+                <p ng-message="required" class="error">Genre  is required</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="awards" class="col-sm-3 control-label">Awards</label>
+        <div class="col-sm-9">
+            <input type="text" id="awards" name="awards" placeholder="awards" class="form-control" ng-model="movieVm.newMovie.awards" required >
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="type" class="col-sm-3 control-label">Type</label>
+        <div class="col-sm-9">
+            <select id="type" name="type" class="form-control" ng-model="movieVm.newMovie.type" >
+                <option value="move">Movie</option>
+                <option value="series">Series</option>
+            </select>
+            <div ng-messages="movieForm.type.$error" ng-if="movieForm.type.$dirty">
+                <p ng-message="required" class="error">Type  is required</p>
+            </div>
+        </div>
+    </div> <!-- /.form-group -->
+    <div class="form-group">
+        <label for="runtime" class="col-sm-3 control-label">RunTime</label>
+        <div class="col-sm-9">
+            <input type="text" id="runtime" placeholder="runtime" class="form-control" ng-model="movieVm.newMovie.runtime"  required>
+            <div ng-messages="movieForm.runtime.$error" ng-if="movieForm.runtime.$dirty">
+                <p ng-message="required" class="error">Run time  is required</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="released" class="col-sm-3 control-label">Released</label>
+        <div class="col-sm-9">
+            <input type="text" id="released" name="released" class="datepicker" ng-model="movieVm.newMovie.released" required/>
+            <div ng-messages="movieForm.released.$error" ng-if="movieForm.released.$dirty">
+                <p ng-message="required" class="error">Released Date  is required</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="year" class="col-sm-3 control-label">Year</label>
+        <div class="col-sm-9">
+            <input type="text" id="year" name="year" class="datepicker"  ng-model="movieVm.newMovie.year"/>
+            <div ng-messages="movieForm.year.$error" ng-if="movieForm.year.$dirty">
+                <p ng-message="required" class="error">Year is required</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="country" class="col-sm-3 control-label">Country</label>
+        <div class="col-sm-9">
+            <select id="country" name="country" class="form-control" ng-model="movieVm.newMovie.country">
+                <option>United States</option>
+                <option></option>
+                <option>Cambodia</option>
+                <option>Denmark</option>
+                <option>Ecuador</option>
+                <option>Fiji</option>
+                <option>Gabon</option>
+                <option>Haiti</option>
+            </select>
+        </div>
+    </div> <!-- /.form-group -->
+
+    <div class="form-group">
+        <label for="actor" class="col-sm-3 control-label">Actors</label>
+        <div class="col-sm-9">
+            <input type="text" id="actor" name="actor" placeholder="actor" class="form-control"ng-model="movieVm.newMovie.movieCast.actor" required>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="director" class="col-sm-3 control-label">Director</label>
+        <div class="col-sm-9">
+            <input type="text" id="director"  name="director" placeholder="director" class="form-control" ng-model="movieVm.newMovie.movieCast.director"  required>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="writer" class="col-sm-3 control-label">Writers</label>
+        <div class="col-sm-9">
+            <input type="text" id="writer" placeholder="writer" class="form-control" ng-model="movieVm.newMovie.movieCast.writer" required>
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" class="btn btn-primary btn-block">Add</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

@@ -2,21 +2,29 @@
 <form name="loginForm" ng-submit="loginForm.$setPristine();authVm.loginUser() " novalidate>
 
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email" class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-9">
         <input type="email" class="form-control" id="email" name="email" placeholder="Email" ng-model="authVm.logUser.email" required>
         <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$dirty">
             <p ng-message="required" class="error">Email is required</p>
             <p ng-message="email" class="error">Email is invalid</p>
         </div>
+            </div>
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password" class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-9">
         <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="authVm.logUser.password" required>
         <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$dirty">
             <p ng-message="required" class="error">Password is required</p>
         </div>
-    </div>
+            </div>
+        </div>
 
+    <div class="form-group">
+        <div class="col-sm-9">
     <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Submit</button>
+            </div>
+    </div>
 </form>
     </div>

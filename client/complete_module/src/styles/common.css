@@ -20,10 +20,14 @@ section {
 }
 .form-group label{
     float:left;
+    margin-bottom:5px;
 }
 input[type=email],input[type=password],input[type=select]{
-    width: 13em;
+    width: 15em;
+    margin-bottom:5px;
+    padding:5px;
+
 }
-select{
-    width:13em !important;
+select,textarea{
+    width:20em !important;
 }

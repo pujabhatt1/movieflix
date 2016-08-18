@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="container">
 <form name="movieForm" ng-submit="movieForm.$setPristine(); movieVm.addMovie()" novalidate>
 
 <div class="form-group">
@@ -125,24 +119,25 @@
         </div>
     </div>
 </div>
-<div class="form-group">
-    <label for="released" class="col-sm-3 control-label">Released</label>
-    <div class="col-sm-9">
-        <input type="text" id="released" name="released" class="datepicker" ng-model="movieVm.newMovie.released" required/>
-        <div ng-messages="movieForm.released.$error" ng-if="movieForm.released.$dirty">
-            <p ng-message="required" class="error">Released Date  is required</p>
+    <div class="form-group">
+        <label for="released" class="col-sm-3 control-label">released</label>
+        <div class="col-sm-9">
+            <input type="text" id="released" placeholder="released" class="form-control" ng-model="movieVm.newMovie.released"  required>
+            <div ng-messages="movieForm.released.$error" ng-if="movieForm.released.$dirty">
+                <p ng-message="required" class="error">Released Date  is required</p>
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <label for="year" class="col-sm-3 control-label">Year</label>
-    <div class="col-sm-9">
-        <input type="text" id="year" name="year" class="datepicker"  ng-model="movieVm.newMovie.year"/>
-        <div ng-messages="movieForm.year.$error" ng-if="movieForm.year.$dirty">
-            <p ng-message="required" class="error">Year is required</p>
+    <div class="form-group">
+        <label for="year" class="col-sm-3 control-label">year</label>
+        <div class="col-sm-9">
+            <input type="text" id="year" placeholder="year" class="form-control" ng-model="movieVm.newMovie.year"  required>
+            <div ng-messages="movieForm.year.$error" ng-if="movieForm.year.$dirty">
+                <p ng-message="required" class="error">Released Date  is required</p>
+            </div>
         </div>
     </div>
-</div>
+
 <div class="form-group">
     <label for="country" class="col-sm-3 control-label">Country</label>
     <div class="col-sm-9">
@@ -190,5 +185,4 @@
 </div>
 </form>
 
-</body>
-</html>
+</div>

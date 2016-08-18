@@ -15,10 +15,7 @@
 
     function init() {
       console.log('UsersController');
-      if ($window.localStorage.currentUser) {
-          console.log("atcntrl");
-          console.log($http.defaults.headers.common.Authorization);
-      }
+
       userService
         .getUsers()
         .then(function(users) {

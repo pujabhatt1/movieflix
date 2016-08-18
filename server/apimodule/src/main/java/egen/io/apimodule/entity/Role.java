@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 @Entity
 @Table
 @NamedQueries({ 
-	@NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r ")
+	@NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r where name='User' ")
 })
 public class Role {
 	@Id

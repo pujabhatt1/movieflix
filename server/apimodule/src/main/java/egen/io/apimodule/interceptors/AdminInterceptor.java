@@ -17,11 +17,16 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 		throws Exception {
 		System.out.println("admin is called before this method");
-		String jwt=request.getHeader("jwt");
+		String AuthHeader = request.getHeader("Authorization");
+		System.out.println("Auth Header"+AuthHeader);
+		String token=null;
+			if(AuthHeader!=null){
+			token	= AuthHeader.substring("Bearer".length()).trim();
+			}
 		
 		try{
 			TokenHandler obj=new TokenHandler();
-			obj.verifyTokenAndAdmin(jwt);
+			obj.verifyTokenAndAdmin(token);
 			}
 			catch(SignatureException e){
 				System.out.println("ther is signature exception");

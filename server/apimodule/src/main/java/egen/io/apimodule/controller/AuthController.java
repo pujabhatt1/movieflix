@@ -34,13 +34,14 @@ public class AuthController {
 	AuthResult authResult;
 	
 	// login
-		@RequestMapping(method = RequestMethod.POST, path = "login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+		@RequestMapping(method = RequestMethod.POST, path = "login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE,consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 		public AuthResult authenticate(@RequestBody User user) {
 			boolean isValidUser = service.authenticate(user);
 			if(isValidUser){
 				User existing=service.findByEmail(user.getEmail());
 				String email=user.getEmail();
 				String role=existing.getRole().getName();
+				String userId=existing.getId();
 				System.out.println(role);
 				String token=tokenHandler.creatToken(email,role);
 				System.out.println(token);
@@ -49,6 +50,7 @@ public class AuthController {
 				tokenService.create(tokenObj);
 				authResult.setResult("success");
 				authResult.setToken(token);
+				authResult.setUserId(userId);
 			   return authResult;
 		}
 			else{

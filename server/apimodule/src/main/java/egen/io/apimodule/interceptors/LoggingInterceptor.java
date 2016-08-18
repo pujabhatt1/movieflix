@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.NotAuthorizedException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,6 +28,10 @@ import egen.io.apimodule.service.UserService;
 import egen.io.apimodule.tokenhandler.TokenHandler;
 
 public class LoggingInterceptor implements HandlerInterceptor {
+
+	
+
+	
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -33,8 +40,20 @@ public class LoggingInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		System.out.println("---Before Method Execution---");
-		String token = request.getHeader("token");
-		
+	 String method=request.getMethod();
+	if(method.equals("OPTIONS")){
+		System.out.println("mm"+method);
+		 return true;
+	 }
+	 else{
+			System.out.println("mm"+method);
+		String AuthHeader = request.getHeader("Authorization");
+		System.out.println("Auth Header"+AuthHeader);
+		String token=null;
+			if(AuthHeader!=null){
+			token	= AuthHeader.substring("Bearer".length()).trim();
+			}
+		System.out.println("token is"+token);
 		  if (token == null) {
 	            throw new InvalidTokenException("Token header must be provided");
 	        }
@@ -57,6 +76,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
 			System.out.println("ther is signature exception");
 			response.sendRedirect("http://www.google.com");
 		}
+	 }
 		return true;
 	}
 
@@ -94,4 +114,8 @@ public class LoggingInterceptor implements HandlerInterceptor {
 			throws Exception {
 		
 	}
+	
+	
 }
+
+

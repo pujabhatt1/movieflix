@@ -7,26 +7,75 @@
     angular.module('movieflix')
         .controller('MovieController', MovieController);
 
-    MovieController.$inject = ['movieService','$location'];
-    function MovieController(movieService,$location) {
+    MovieController.$inject = ['movieService','$location','$routeParams'];
+    function MovieController(movieService,$location,$routeParams) {
 
         var movieVm = this;
         movieVm.addMovie=addMovie;
-        movieVm.searchMovie=searchMovie;
-        init();
+
+
+        function setPage (pageNo) {
+            movieVm.currentPage = pageNo;
+        };
+
+        function pageChanged() {
+            console.log('Page changed to: ' + movieVm.currentPage);
+        };
+
+        function setItemsPerPage (num) {
+            movieVm.itemsPerPage = num;
+            movieVm.currentPage = 1; //reset to first paghe
+        }
+       init();
+
         function init() {
-            console.log('MovieController');
 
+           if($routeParams.field && $routeParams.txt) {
                 movieService
-                    .getAllMovies()
+                    .getMovieByField($routeParams.field, $routeParams.txt)
+                    .then(function (data) {
+                        movieVm.movies = data;
+                        setPaginationItems();
+                    }, function (error) {
+                        console.log(error);
+                    });
+            }
+            else if($routeParams.type){
+                movieService
+                    .getMoviesByTopRating($routeParams.type)
                     .then(function(data) {
-                        movieVm.movies=data;
 
+                        movieVm.movies = data;
+                        setPaginationItems();
                     }, function(error) {
                         console.log(error);
+                    });
+            }
+            else {
+        console.log("at else clause");
+                movieService
+                    .getAllMovies()
+                    .then(function (data) {
+                        movieVm.movies = data;
+                        setPaginationItems();
+                        }, function (error) {
+                        console.log(error);
                     })
-7
+            }
+
+            return movieVm.movies;
+
+
         }
+
+        function setPaginationItems(){
+            movieVm.viewby =4 ;
+            movieVm.totalItems = movieVm.movies.length;
+            movieVm.currentPage = 1;
+            movieVm.itemsPerPage = movieVm.viewby;
+            movieVm.maxSize = 5; //Number of pager buttons to show
+        }
+        //function watch
         function addMovie(){
             movieService
                 .createMovie(movieVm.newMovie)
@@ -35,18 +84,9 @@
                 }, function(error) {
                     console.log(error);
                 })
+
         }
-        function searchMovie(){
-            console.log("in search");
-          console.log(movieVm.searchtxt)
-            movieService
-                .getMoviesBySearchText(movieVm.searchtxt)
-                .then(function(data) {
-                    movieVm.movies=data;
-                }, function(error) {
-                    console.log(error);
-                })
-        }
+
 
 
     }

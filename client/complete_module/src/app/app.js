@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('movieflix', ['ngMessages','ngRoute','LocalStorageModule'])
+    .module('movieflix', ['ui.bootstrap','ngMessages','ngRoute','LocalStorageModule'])
     .config(moduleConfig)
     .run(moduleRun);
     moduleConfig.$inject = ['$routeProvider','localStorageServiceProvider'];
@@ -54,13 +54,13 @@
 
         .when('/movie-list/:field/:txt', {
             templateUrl: 'app/views/movie-list-all.tmpl.html',
-            controller: 'findMovieController',
+            controller: 'MovieController',
             controllerAs: 'movieVm'
         })
 
         .when('/movie-list/type/:type', {
             templateUrl: 'app/views/movie-list-all.tmpl.html',
-            controller: 'MovieTypeController',
+            controller: 'MovieController',
             controllerAs: 'movieVm'
         })
 
@@ -131,14 +131,7 @@
             $location.path('/login');
         }
 
-        // redirect to login page if not logged in and trying to access a restricted page
-        /*$rootScope.$on('$locationChangeStart', function (event, next, current) {
-            var publicPages = ['/login'];
-            var restrictedPage = publicPages.indexOf($location.path()) === -1;
-            if (restrictedPage && !$window.localStorage.currentUser) {
-                $location.path('/login');
-            }
-        });*/
+
     }
 
 })();

@@ -1,0 +1,31 @@
+<div class="container">
+<div>
+    <a href="#/movie-list/genre/action">Action Movies</a>
+    <a href="#/movie-list/genre/drama">Drama Movies</a>
+    <a href="#/movie-list/type/movie"/>Movies</a>
+    <a href="#/movie-list/type/series"/>Series</a>
+    <a ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
+    <a ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
+    <a ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
+</div>
+<div>
+<input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
+</div>
+<div class="row" >
+    <div class = "col-sm-6 col-md-3" ng-repeat="movie in movieVm.filteredmovies | filter:movieVm.searchText | orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
+
+        <td>
+            {{movie.Title}}
+        </td>
+
+
+        </div>
+    </div>
+<div> lenth:{{movieVm.movies.length}}</div>
+    <uib-pagination
+        ng-model="movieVm.currentPage"
+        total-items="movieVm.movies.length"
+        max-size="movieVm.maxSize"
+        boundary-links="true">
+    </uib-pagination>
+</div>

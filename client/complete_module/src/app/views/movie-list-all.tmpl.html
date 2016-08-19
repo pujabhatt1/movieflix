@@ -1,29 +1,40 @@
-
-<div>
-    <a href="#/movie-list/genre/action">Action Movies</a>
-    <a href="#/movie-list/genre/drama">Drama Movies</a>
-    <a href="#/movie-list/type/movie"/>Movies</a>
-    <a href="#/movie-list/type/series"/>Series</a>
-    <a ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
-    <a ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
-    <a ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
-</div>
-<div>
+<div class="container">
+    <div>
+        <a href="#/movie-list/genre/action">Action Movies</a>
+        <a href="#/movie-list/genre/drama">Drama Movies</a>
+        <a href="#/movie-list/type/movie"/>Movies</a>
+        <a href="#/movie-list/type/series"/>Series</a>
+        <a ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
+        <a ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
+        <a ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
+    </div>
 <input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
-</div>
-<div class="row" >
-    <div class = "col-sm-6 col-md-3" ng-repeat="movie in movieVm.movies | filter:movieVm.searchText | orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
-        <div class = "thumbnail">
-            <img ng-src = "images/sport.jpeg" alt = "Generic placeholder thumbnail">
-        </div>
-        <td>
-            <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
-        </td>
-        <td>  {{movie.released}}</td>
-        <td>  {{movie.imdbRating}}</td>
-         <td> {{movie.imdbVotes}}</td><td> {{movie.type}}</td>
-        <td>{{movie.movieCast.director}}</td>
-        <td>{{movie.movieCast.actor}}</td>
+
+    <div class="row" >
+        <div class = "col-sm-6 col-md-3" ng-repeat="movie in movieVm.movies.slice(((movieVm.currentPage-1)*movieVm.itemsPerPage), ((movieVm.currentPage)*movieVm.itemsPerPage))| filter:movieVm.searchText" >
+
+            <div class = "thumbnail">
+                <img ng-src = "images/sport.jpeg" alt = "Generic placeholder thumbnail">
+            </div>
+            <td>
+                <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
+            </td>
+            <td>  {{movie.released}}</td>
+            <td>  {{movie.imdbRating}}</td>
+            <td> {{movie.imdbVotes}}</td><td> {{movie.type}}</td>
+            <td>{{movie.movieCast.director}}</td>
+            <td>{{movie.movieCast.actor}}</td>
 
         </div>
     </div>
+
+
+
+    <div>
+<uib-pagination total-items="movieVm.totalItems" ng-model="movieVm.currentPage" ng-change="movieVm.pageChanged()" class="pagination-sm" items-per-page="movieVm.itemsPerPage">
+
+</uib-pagination>
+    </div>
+<pre>The selected page no: {{movieVm.currentPage}}</pre>
+
+</div>

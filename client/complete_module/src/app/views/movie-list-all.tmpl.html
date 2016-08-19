@@ -16,15 +16,15 @@
             <div class = "thumbnail">
                 <img ng-src = "images/sport.jpeg" alt = "Generic placeholder thumbnail">
             </div>
-            <td>
+           <p>
                 <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
-            </td>
-            <td>  {{movie.released}}</td>
-            <td>  {{movie.imdbRating}}</td>
-            <td> {{movie.imdbVotes}}</td><td> {{movie.type}}</td>
-            <td>{{movie.movieCast.director}}</td>
-            <td>{{movie.movieCast.actor}}</td>
-
+            </p>
+            <p>  {{movie.released}}
+              {{movie.imdbRating}}
+             {{movie.imdbVotes}}{{movie.type}}
+            {{movie.movieCast.director}}
+            {{movie.movieCast.actor}}</p>
+            </p>
         </div>
     </div>
 
@@ -35,6 +35,6 @@
 
 </uib-pagination>
     </div>
-<pre>The selected page no: {{movieVm.currentPage}}</pre>
+
 
 </div>

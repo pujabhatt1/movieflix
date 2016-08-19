@@ -31,3 +31,6 @@ input[type=email],input[type=password],input[type=select]{
 select,textarea{
     width:20em !important;
 }
+td{
+    padding:5px;
+}

@@ -53,13 +53,13 @@
         })
 
         .when('/movie-list/:field/:txt', {
-            templateUrl: 'app/views/movie-list.tmpl.html',
+            templateUrl: 'app/views/movie-list-all.tmpl.html',
             controller: 'findMovieController',
             controllerAs: 'movieVm'
         })
 
         .when('/movie-list/type/:type', {
-            templateUrl: 'app/views/movie-list.tmpl.html',
+            templateUrl: 'app/views/movie-list-all.tmpl.html',
             controller: 'MovieTypeController',
             controllerAs: 'movieVm'
         })
@@ -92,7 +92,8 @@
             controllerAs: 'commentVm'
         })
 
-        .when('/add-rating/:id', {
+        .when('/add-rating/:id/:rating', {
+            template: " ",
             controller: 'RatingController',
             controllerAs: 'ratingVm'
         })
@@ -101,29 +102,43 @@
             controller: 'MovieUpdateController',
             controllerAs: 'movieVm'
         })
+        .when('/logout', {
+            /* template: " ",
+           controller: 'AuthController',
+           controllerAs: 'authVm'*/
+          resolve: {
+              logout: ['authService', function (authService) {
+                  authService
+                      .logout();
+              }]
+          }
+      })
 
       .otherwise({
         redirectTo: '/login'
       });
   }
-    moduleRun.$inject = ['$rootScope', '$http', '$location', '$window'];
+    moduleRun.$inject = ['$rootScope', '$http', '$location', 'localStorageService'];
 
-    function moduleRun($rootScope, $http, $location, $window) {
+    function moduleRun($rootScope, $http, $location, localStorageService) {
         console.log("inside run of module");
         // keep user logged in after page refresh
-        if ($window.localStorage.currentUser) {
-            $http.defaults.headers.common.Authorization = 'Bearer ' +  $window.localStorage.currentUser.authtoken;
+        if (localStorageService.get("uId").length>0) {
+            $http.defaults.headers.common.Authorization = 'Bearer ' +  localStorageService.get("auth-token") ;
 
+        }
+        else{
+            $location.path('/login');
         }
 
         // redirect to login page if not logged in and trying to access a restricted page
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        /*$rootScope.$on('$locationChangeStart', function (event, next, current) {
             var publicPages = ['/login'];
             var restrictedPage = publicPages.indexOf($location.path()) === -1;
             if (restrictedPage && !$window.localStorage.currentUser) {
                 $location.path('/login');
             }
-        });
+        });*/
     }
 
 })();

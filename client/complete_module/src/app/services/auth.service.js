@@ -6,14 +6,14 @@
  angular.module('movieflix')
         .service('authService', authService);
 
-    authService.$inject = ['$http', '$q','localStorageService', '$window'];
+    authService.$inject = ['$http', '$q','localStorageService', '$location'];
 
-    function authService($http, $q,localStorageService, $window) {
+    function authService($http, $q,localStorageService, $location) {
 
         var self = this;
         self.checkUser=checkUser;
         self.setHeader=setHeader;
-
+        self.logout=logout;
 
         function checkUser(loginUser){
             return $http.post('http://localhost:8080/apimodule/api/login',loginUser)
@@ -44,7 +44,16 @@
         }
 
         function logout(){
+
             $http.defaults.headers.common.Authorization = '';
+            localStorageService.set("uId",'');
+            localStorageService.set("auth-token",'');
+            redirectLogin();
+        }
+        function redirectLogin(){
+            if(localStorageService.get("uId").length<=0) {
+                $location.path('/login');
+            }
         }
     }
 

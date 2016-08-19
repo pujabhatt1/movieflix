@@ -7,15 +7,18 @@
     angular.module('movieflix')
         .service('ratingService', ratingService);
 
-    ratingService.$inject = ['$http', '$q', 'CONFIG'];
+    ratingService.$inject = ['$http', '$q', 'CONFIG','authService'];
 
-    function ratingService($http, $q, CONFIG) {
+    function ratingService($http, $q, CONFIG,authService) {
 
         var self = this;
-        self.creterating = creterating;
-
-         function creterating(rating) {
-            console.log(rating);
+        self.createRating = createRating;
+        init();
+        function init(){
+            authService.setHeader();
+        }
+         function createRating(rating) {
+            console.log("inside create");
             return $http.post(CONFIG.API_HOST+'/ratings', rating)
                 .then(successFn,errorFn);
         }

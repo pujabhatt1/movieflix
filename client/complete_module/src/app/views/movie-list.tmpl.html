@@ -6,12 +6,15 @@
     <a href="#/movie-list/type/movie"/>Movies</a>
     <a href="#/movie-list/type/series"/>Series</a>
     <a href="">TopratedMovie or series</a>
+    <a ng-click="movieVm.sorter.sortBy='movieCast.director'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Title</a>
+    <a ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
 </div>
 <table class="table table-striped">
     <thead>
     <tr>
 
         <th ng-click="movieVm.sorter.sortBy='title'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Title</th>
+        <th ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</th>
         <th ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Imdb Votes</th>
         <th ng-click="movieVm.sorter.sortBy='type'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Type</th>
 
@@ -24,7 +27,7 @@
         <td>
             <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
         </td>
-
+        <td>  {{movie.released}}</td>
         <td> {{movie.imdbVotes}}</td><td> {{movie.type}}</td>
         <td>{{movie.movieCast.director}}</td>
         <td>{{movie.movieCast.actor}}</td>

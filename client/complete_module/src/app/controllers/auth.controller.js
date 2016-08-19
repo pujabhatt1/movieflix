@@ -10,7 +10,7 @@
         var authVm = this;
         authVm.loginUser=loginUser;
         authVm.addUser=addUser;
-
+        authVm.logoutUser=logoutUser;
 
         init();
 
@@ -33,6 +33,20 @@
 
 
                     $location.path('/movie-list');
+                }, function(error) {
+                    console.log(error);
+                })
+
+
+        }
+        function logoutUser(){
+            authService
+                .logout()
+                .then(function(result) {
+                   console.log("log out done");
+
+
+                    $location.path('/login');
                 }, function(error) {
                     console.log(error);
                 })

@@ -1,49 +1,29 @@
-<form name="searchForm" ng-submit="searchForm.$setPristine(); searchForm.searchMovie()" novalidate>
 
-    <div class="form-group">
-        <label for="searchtxt" class="col-sm-3 control-label"> Movie Title</label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" id="searchtxt" name="searchtxt" placeholder="searchtxt" ng-model="movieVm.searchtxt">
-
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <div class="col-sm-9 col-sm-offset-3">
-            <button type="submit" class="btn btn-primary btn-block">Add</button>
-        </div>
-    </div>
-</form>
 <div>
     <a href="#/movie-list/genre/action">Action Movies</a>
     <a href="#/movie-list/genre/drama">Drama Movies</a>
     <a href="#/movie-list/type/movie"/>Movies</a>
     <a href="#/movie-list/type/series"/>Series</a>
-
+    <a ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
+    <a ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
+    <a ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
 </div>
-<table class="table table-striped">
-    <thead>
-    <tr>
-
-        <th ng-click="movieVm.sorter.sortBy='title'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Title</th>
-        <th ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Imdb Votes</th>
-        <th ng-click="movieVm.sorter.sortBy='type'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Type</th>
-
-        <th ng-click="movieVm.sorter.sortBy='movieCast.director'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Director</th>
-        <th ng-click="movieVm.sorter.sortBy='movieCast.actor'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Actor</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="movie in movieVm.movies | filter:movieVm.searchText | orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
+<div>
+<input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
+</div>
+<div class="row" >
+    <div class = "col-sm-6 col-md-3" ng-repeat="movie in movieVm.movies | filter:movieVm.searchText | orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
+        <div class = "thumbnail">
+            <img ng-src = "images/sport.jpeg" alt = "Generic placeholder thumbnail">
+        </div>
         <td>
             <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
         </td>
-
-        <td> {{movie.imdbVotes}}</td><td> {{movie.type}}</td>
+        <td>  {{movie.released}}</td>
+        <td>  {{movie.imdbRating}}</td>
+         <td> {{movie.imdbVotes}}</td><td> {{movie.type}}</td>
         <td>{{movie.movieCast.director}}</td>
         <td>{{movie.movieCast.actor}}</td>
-        <td><a href="#/add-movie/{{movie.movieId}}">Edit</a><a href="#/delete-movie/{{movie.movieId}}">Delete</a></td>
-    </tr>
-    </tbody>
-</table>
+
+        </div>
+    </div>

@@ -3,13 +3,11 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li>Browse:</li>
-                <li> <a href="#/movie-list/genre/action">Action</a></li>
-                <li> <a href="#/movie-list/genre/drama">Drama</a></li>
+                <li><a href="#/movie-list/genre/action">Action</a></li>
+                <li><a href="#/movie-list/genre/drama">Drama</a></li>
                 <li><a href="#/movie-list/type/movie"/>Top Rated Movies</a></a></li>
                 <li><a href="#/movie-list/type/series"/>Top Rated Series</a></li>
             </ul>
-
-
 
 
         </div>
@@ -17,47 +15,62 @@
 
     <div style="float:right">
         <p>Sort By</p>
-        <a class="sort-items" ng-click="movieVm.sorter.sortBy='year'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Year</a>
+        <a class="sort-items"
+           ng-click="movieVm.sorter.sortBy='year'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Year</a>
 
-        <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
-        <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
+        <a class="sort-items"
+           ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
+        <a class="sort-items"
+           ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
         </p>
     </div>
     <div>
         <input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
 
     </div>
-<table class="table table-striped">
-    <thead>
-    <tr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
 
-        <th ng-click="movieVm.sorter.sortBy='title'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Title</th>
-        <th ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Year</th>
-         <th ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Imdb Rating</th>
-        <th ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Imdb Votes</th>
+            <th ng-click="movieVm.sorter.sortBy='title'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Title
+            </th>
+            <th ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">
+                Year
+            </th>
+            <th ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">
+                Imdb Rating
+            </th>
+            <th ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Imdb
+                Votes
+            </th>
 
-        <th ng-click="movieVm.sorter.sortBy='type'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Type</th>
+            <th ng-click="movieVm.sorter.sortBy='type'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Type</th>
 
-        <th ng-click="movieVm.sorter.sortBy='movieCast.director'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Director</th>
-        <th ng-click="movieVm.sorter.sortBy='movieCast.actor'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Actor</th>
-        <th colspan="2">Action</th>
+            <th ng-click="movieVm.sorter.sortBy='movieCast.director'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">
+                Director
+            </th>
+            <th ng-click="movieVm.sorter.sortBy='movieCast.actor'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">
+                Actor
+            </th>
+            <th colspan="2">Action</th>
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="movie in movieVm.movies | filter:movieVm.searchText | orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
-        <td>
-            <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
-        </td>
-        <td>  {{movie.year}}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="movie in movieVm.movies | filter:movieVm.searchText | orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
+            <td>
+                <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
+            </td>
+            <td> {{movie.year}}</td>
 
-        <td> {{movie.imdbRating}}</td>
-        <td> {{movie.imdbVotes}}</td>
-        <td> {{movie.type}}</td>
-        <td>{{movie.movieCast.director}}</td>
-        <td>{{movie.movieCast.actor}}</td>
-        <td><a href="#/add-movie/{{movie.movieId}}">Edit</a><a href="#/delete-movie/{{movie.movieId}}">Delete</a></td>
-    </tr>
-    </tbody>
-</table>
+            <td> {{movie.imdbRating}}</td>
+            <td> {{movie.imdbVotes}}</td>
+            <td> {{movie.type}}</td>
+            <td>{{movie.movieCast.director}}</td>
+            <td>{{movie.movieCast.actor}}</td>
+            <td><a href="#/add-movie/{{movie.movieId}}">Edit</a><a href="#/delete-movie/{{movie.movieId}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>

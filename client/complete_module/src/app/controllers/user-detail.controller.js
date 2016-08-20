@@ -1,27 +1,27 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular.module('movieflix')
-    .controller('UserDetailController', UserDetailController);
+    angular.module('movieflix')
+        .controller('UserDetailController', UserDetailController);
 
-  UserDetailController.$inject = ['userService', '$routeParams'];
+    UserDetailController.$inject = ['userService', '$routeParams'];
 
-  function UserDetailController(userService, $routeParams) {
-    var userDetailVm = this;
+    function UserDetailController(userService, $routeParams) {
+        var userDetailVm = this;
 
-    init();
+        init();
 
-    function init() {
-      console.log('UserDetailController');
+        function init() {
+            console.log('UserDetailController');
 
-      userService
-        .getUserById($routeParams.id)
-        .then(function (user){
-          userDetailVm.user = user;
-        }, function (error) {
-          console.log(error);
-        });
+            userService
+                .getUserById($routeParams.id)
+                .then(function (user) {
+                    userDetailVm.user = user;
+                }, function (error) {
+                    console.log(error);
+                });
+        }
     }
-  }
 
 })();

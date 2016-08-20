@@ -6,15 +6,19 @@
         <thead>
         <tr>
 
-            <th ng-click="commentVm.sorter.sortBy='title'; commentVm.sorter.sortOrder = !commentVm.sorter.sortOrder;">Comment</th>
-             <th ng-click="commentVm.sorter.sortBy='user.id'; commentVm.sorter.sortOrder = !commentVm.sorter.sortOrder;">User</th>
+            <th ng-click="commentVm.sorter.sortBy='title'; commentVm.sorter.sortOrder = !commentVm.sorter.sortOrder;">
+                Comment
+            </th>
+            <th ng-click="commentVm.sorter.sortBy='user.id'; commentVm.sorter.sortOrder = !commentVm.sorter.sortOrder;">
+                User
+            </th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="comment in commentVm.comments | filter:commentVm.searchText | orderBy:commentVm.sorter.sortBy: commentVm.sorter.sortOrder">
-            <td>  {{comment.commentText}}</td>
-            <td>  {{comment.user.id}}</td>
-                 </tr>
+            <td> {{comment.commentText}}</td>
+            <td> {{comment.user.id}}</td>
+        </tr>
         </tbody>
     </table>
 </div>

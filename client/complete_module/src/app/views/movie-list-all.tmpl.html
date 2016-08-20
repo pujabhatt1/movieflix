@@ -1,16 +1,13 @@
-
 <div class="container">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-               <ul class="nav navbar-nav">
-                   <li>Browse:</li>
-                   <li> <a href="#/movie-list/genre/action">Action</a></li>
-                <li> <a href="#/movie-list/genre/drama">Drama</a></li>
+            <ul class="nav navbar-nav">
+                <li>Browse:</li>
+                <li><a href="#/movie-list/genre/action">Action</a></li>
+                <li><a href="#/movie-list/genre/drama">Drama</a></li>
                 <li><a href="#/movie-list/type/movie"/>Top Rated Movies</a></a></li>
-                   <li><a href="#/movie-list/type/series"/>Top Rated Series</a></li>
+                <li><a href="#/movie-list/type/series"/>Top Rated Series</a></li>
             </ul>
-
-
 
 
         </div>
@@ -18,27 +15,32 @@
 
     <div style="float:right">
         <p>Sort By</p>
-        <a class="sort-items" ng-click="movieVm.sorter.sortBy='year'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Year</a>
+        <a class="sort-items"
+           ng-click="movieVm.sorter.sortBy='year'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Year</a>
 
-        <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
-        <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
+        <a class="sort-items"
+           ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
+        <a class="sort-items"
+           ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
         </p>
     </div>
-<div>
-<input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
-</div>
-    <div class="row" >
-        <div class = "col-sm-6 col-md-3 box" ng-repeat="movie in movieVm.movies.slice(((movieVm.currentPage-1)*movieVm.itemsPerPage), ((movieVm.currentPage)*movieVm.itemsPerPage))|filter:movieVm.searchText|orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder" >
+    <div>
+        <input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3 box"
+             ng-repeat="movie in movieVm.movies.slice(((movieVm.currentPage-1)*movieVm.itemsPerPage), ((movieVm.currentPage)*movieVm.itemsPerPage))|filter:movieVm.searchText|orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
 
-            <div class = "thumbnail">
-                <img ng-src = "{{movie.poster}}" alt = "Generic placeholder thumbnail">
+            <div class="thumbnail">
+                <img ng-src="{{movie.poster}}" alt="Generic placeholder thumbnail">
             </div>
 
-            <td>   <p>
-                <h2>  <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a></h2>
-                </p> {{movie.released}}</td>
-              <td>{{movie.imdbRating}}</td>
-             {{movie.imdbVotes}}{{movie.type}}
+            <td><p>
+                <h2><a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a></h2>
+                </p> {{movie.released}}
+            </td>
+            <td>{{movie.imdbRating}}</td>
+            {{movie.imdbVotes}}{{movie.type}}
             {{movie.movieCast.director}}
             {{movie.movieCast.actor}}
             </p>
@@ -50,11 +52,11 @@
     </div>
 
 
-
     <div>
-<uib-pagination total-items="movieVm.totalItems" ng-model="movieVm.currentPage" ng-change="movieVm.pageChanged()" class="pagination-sm" items-per-page="movieVm.itemsPerPage">
+        <uib-pagination total-items="movieVm.totalItems" ng-model="movieVm.currentPage"
+                        ng-change="movieVm.pageChanged()" class="pagination-sm" items-per-page="movieVm.itemsPerPage">
 
-</uib-pagination>
+        </uib-pagination>
     </div>
 
 

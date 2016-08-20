@@ -1,31 +1,30 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular.module('movieflix')
-    .controller('UsersController', UsersController);
+    angular.module('movieflix')
+        .controller('UsersController', UsersController);
 
-  UsersController.$inject = ['userService','$window','$http'];
+    UsersController.$inject = ['userService', '$window', '$http'];
 
-  function UsersController(userService,$window,$http) {
-    var usersVm = this;
+    function UsersController(userService, $window, $http) {
+        var usersVm = this;
 
 
+        init();
 
-    init();
+        function init() {
+            console.log('UsersController');
 
-    function init() {
-      console.log('UsersController');
+            userService
+                .getUsers()
+                .then(function (users) {
+                    usersVm.users = users;
+                }, function (error) {
+                    console.log(error);
+                });
+        }
 
-      userService
-        .getUsers()
-        .then(function(users) {
-          usersVm.users = users;
-        }, function(error) {
-          console.log(error);
-        });
+
     }
-
-
-  }
 
 })();

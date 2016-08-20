@@ -1,7 +1,7 @@
 /**
  * Created by puja on 8/17/16.
  */
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -13,23 +13,23 @@
     function MovieDetailController(movieService, $routeParams) {
         console.log("mdetail");
         var movieVm = this;
-        movieVm.avgRating="NA";
+        movieVm.avgRating = "NA";
         init();
 
         function init() {
             console.log("in mcnt");
             movieService
                 .getMovieDetail($routeParams.id)
-                .then(function(data) {
+                .then(function (data) {
                     movieVm.movie = data;
-                }, function(error) {
+                }, function (error) {
                     console.log(error);
                 });
             movieService
                 .getAvgMovieRating($routeParams.id)
-                .then(function(data) {
+                .then(function (data) {
                     movieVm.avgRating = data;
-                }, function(error) {
+                }, function (error) {
                     console.log(error);
                 });
 

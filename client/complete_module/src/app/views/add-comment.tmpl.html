@@ -2,7 +2,8 @@
     <form name="commentForm" ng-submit="commentForm.$setPristine(); commentVm.addComment()" novalidate>
         <div class="form-group">
             <label for="commentText" class="col-sm-3 control-label">Comment</label>
-            <input type="text" class="form-control" id="commentText" name="commentText" placeholder="commentText" ng-model="commentVm.newComment.commentText" required >
+            <input type="text" class="form-control" id="commentText" name="commentText" placeholder="commentText"
+                   ng-model="commentVm.newComment.commentText" required>
             <div ng-messages="commentForm.commentText.$error" ng-if="commentForm.commentText.$dirty">
                 <p ng-message="required" class="error">First Name is required</p>
 
@@ -11,7 +12,7 @@
         </div>
 
 
-         <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
     </form>
 
 </div>

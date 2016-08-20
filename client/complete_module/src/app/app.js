@@ -23,11 +23,7 @@
         controllerAs: 'userDetailVm'
       })
 
-      .when('/resources', {
-        templateUrl: 'app/views/resources.tmpl.html',
-        controller: 'ResourcesController',
-        controllerAs: 'resourcesVm'
-      })
+
         .when('/login', {
           templateUrl: 'app/views/login.tmpl.html',
           controller: 'AuthController',

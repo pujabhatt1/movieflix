@@ -13,7 +13,7 @@
     function MovieDetailController(movieService, $routeParams) {
         console.log("mdetail");
         var movieVm = this;
-
+        movieVm.avgRating="NA";
         init();
 
         function init() {

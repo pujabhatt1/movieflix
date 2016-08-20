@@ -1,12 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+            <div>
+                <h1>{{movieVm.movie.title}}</h1>
+            </div>
             <img  ng-src = "{{movieVm.movie.poster}}" width="400px" />
             <div class="row">
-                <div class="col-md-12">
-                    <h1>{{movieVm.movie.title}}</h1>
-                </div>
-
                 <div class="col-md-12">
                     <p class="description">{{movieVm.movie.plot}}</p>
                 </div>
@@ -31,7 +30,7 @@
 
 
                 <div class="rating" >
-                    <label>Rate it</label>
+                    <label>Rate it:- </label>
                     <span class="sr-only">Three out of Five Stars</span>
                     <a href="#/add-rating/{{movieVm.movie.movieId}}/1"><span
                             class="glyphicon glyphicon-star" aria-hidden="true"></span></a>

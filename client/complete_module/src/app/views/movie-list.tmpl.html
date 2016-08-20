@@ -17,7 +17,7 @@
 
     <div style="float:right">
         <p>Sort By</p>
-        <a class="sort-items" ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
+        <a class="sort-items" ng-click="movieVm.sorter.sortBy='year'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Year</a>
 
         <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
         <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
@@ -32,8 +32,10 @@
     <tr>
 
         <th ng-click="movieVm.sorter.sortBy='title'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Title</th>
-        <th ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</th>
+        <th ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Year</th>
+         <th ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Imdb Rating</th>
         <th ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Imdb Votes</th>
+
         <th ng-click="movieVm.sorter.sortBy='type'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Type</th>
 
         <th ng-click="movieVm.sorter.sortBy='movieCast.director'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Director</th>
@@ -47,8 +49,11 @@
         <td>
             <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
         </td>
-        <td>  {{movie.released}}</td>
-        <td> {{movie.imdbVotes}}</td><td> {{movie.type}}</td>
+        <td>  {{movie.year}}</td>
+
+        <td> {{movie.imdbRating}}</td>
+        <td> {{movie.imdbVotes}}</td>
+        <td> {{movie.type}}</td>
         <td>{{movie.movieCast.director}}</td>
         <td>{{movie.movieCast.actor}}</td>
         <td><a href="#/add-movie/{{movie.movieId}}">Edit</a><a href="#/delete-movie/{{movie.movieId}}">Delete</a></td>

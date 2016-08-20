@@ -12,7 +12,7 @@
 
         var self = this;
         self.checkUser=checkUser;
-        self.setHeader=setHeader;
+        self.authorize=authorize;
         self.logout=logout;
 
         function checkUser(loginUser){
@@ -25,6 +25,7 @@
                     if (response.token) {
                         console.log("inside token");
                          localStorageService.set("uId", response.userId);
+                        localStorageService.set("role",response.role);
                         console.log(localStorageService.get("uId"));
                         localStorageService.set("auth-token",response.token);
                         $http.defaults.headers.common.Authorization = 'Bearer ' +  localStorageService.get("auth-token") ;
@@ -35,7 +36,8 @@
                 });
         }
 
-        function setHeader(loginUser){
+        function authorize(){
+            redirectLogin();
             $http.defaults.headers.common.Authorization = 'Bearer ' +  localStorageService.get("auth-token") ;
         }
 
@@ -44,7 +46,6 @@
         }
 
         function logout(){
-
             $http.defaults.headers.common.Authorization = '';
             localStorageService.set("uId",'');
             localStorageService.set("auth-token",'');

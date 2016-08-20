@@ -7,8 +7,8 @@
     angular.module('movieflix')
         .controller('MovieController', MovieController);
 
-    MovieController.$inject = ['movieService','$location','$routeParams'];
-    function MovieController(movieService,$location,$routeParams) {
+    MovieController.$inject = ['movieService','$location','$routeParams','authService'];
+    function MovieController(movieService,$location,$routeParams,authService) {
 
         var movieVm = this;
         movieVm.addMovie=addMovie;
@@ -24,12 +24,12 @@
 
         function setItemsPerPage (num) {
             movieVm.itemsPerPage = num;
-            movieVm.currentPage = 1; //reset to first paghe
+            movieVm.currentPage = 1; //reset to first page
         }
        init();
 
         function init() {
-
+            authService.authorize();
            if($routeParams.field && $routeParams.txt) {
                 movieService
                     .getMovieByField($routeParams.field, $routeParams.txt)
@@ -75,7 +75,7 @@
             movieVm.itemsPerPage = movieVm.viewby;
             movieVm.maxSize = 5; //Number of pager buttons to show
         }
-        //function watch
+        //function add new movie
         function addMovie(){
             movieService
                 .createMovie(movieVm.newMovie)

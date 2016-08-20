@@ -18,37 +18,34 @@
 
 </head>
 <body>
+
+
   <header>
     <div class="container">
-      <nav>
-        <ul class="nav nav-pills">
 
-          <li>
+      <nav>
+        <ul class="nav nav-pills" ng-controller="HeaderController as headerVm">
+
+          <li ng-show="headerVm.isLoggedIn()==false">
             <a href="#/login">Login</a>
           </li>
-          <li>
+          <li ng-show="headerVm.isLoggedIn()==false">
             <a href="#/add-user">Sign Up</a>
           </li>
 
-          <li>
-            <a href="#/resources">Resources</a>
-          </li>
-          <li>
-            <a href="#/users">Users</a>
-          </li>
-            <li>
-                <a href="#/add-movie">Add Movie</a>
+
+
+            <li ng-show="headerVm.isAdmin()==true">
+                <a href="#/add-movie">Add New Movie</a>
             </li>
-            <li>
-                <a href="#/movie-list">List Movies</a>
+            <li ng-show="headerVm.isAdmin()==true">
+                <a href="#/movie-list">Manage Movies</a>
             </li>
-            <li>
+            <li ng-show="headerVm.isLoggedIn()==true">
                 <a href="#/movie-list-all">List all Movies</a>
             </li>
-            <li>
-                <a href="#/movie-detail">Movie Detail</a>
-            </li>
-          <li>
+
+            <li ng-show="headerVm.isLoggedIn()==true">
             <a href="#/logout">Log Out</a>
           </li>
         </ul>

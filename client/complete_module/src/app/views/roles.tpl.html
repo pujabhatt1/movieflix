@@ -18,3 +18,36 @@
     </tr>
 
 </table>
+<div class="row">
+    <div class="col-sm-6">
+        <h1>Movie Detail</h1>
+        <p><strong>Title</strong>: {{movieVm.movie.title}}</p>
+        <p><strong>ImdbVotes</strong>:  {{movieVm.movie.imdbVotes}}</p>
+
+        <p><strong>Cast</strong>:
+            <strong>Director</strong> <br> {{movieVm.movie.movieCast.director}}</p>
+        <strong>Actor</strong> <br> {{movieVm.movie.movieCast.actor}}
+        </p>
+
+
+        <a href="#/add-comment/{{movieVm.movie.movieId}}">Add Comment</a>
+        <a href="#/add-rating/{{movieVm.movie.movieId}}">Add Rating</a>
+
+        <a href="#/get-comments/{{movieVm.movie.movieId}}">Show all Comments</a>
+    </div>
+    <div class="col-md-3">
+        <span class="sr-only">Three out of Five Stars</span>
+        <a href="#/add-rating/{{movieVm.movie.movieId}}/1"><span
+                class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+        <a  href="#/add-rating/{{movieVm.movie.movieId}}/2"> <span
+                class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+        <a href="#/add-rating/{{movieVm.movie.movieId}}/3" > <span
+                class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+        <a href="#/add-rating/{{movieVm.movie.movieId}}/4"> <span
+                class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></a>
+        <a href="#/add-rating/{{movieVm.movie.movieId}}/5">
+            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></a>
+
+    </div>
+</div>
+</div>

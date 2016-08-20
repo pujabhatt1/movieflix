@@ -18,7 +18,7 @@
 
         init();
         function init(){
-            authService.setHeader();
+            authService.authorize();
         }
 
 

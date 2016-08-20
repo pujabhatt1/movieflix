@@ -21,7 +21,8 @@
 
         init();
         function init(){
-            authService.setHeader();
+            console.log("in movieservie");
+            authService.authorize();
         }
 
         function getAllMovies() {

@@ -13,16 +13,15 @@
         var commentVm = this;
         commentVm.addComment=addComment;
 
-
-
-        init();
+       init();
 
         function init() {
             console.log('commentService');
             commentService
-                .getComments($routeParams.id)
-                .then(function(comments) {
-                    commentVm.comments = comments;
+                .getComments($routeParams.movieId)
+                .then(function(data) {
+                    console.log(data);
+                    commentVm.comments = data;
                 }, function(error) {
                     console.log(error);
                 });
@@ -36,7 +35,7 @@
             commentService
                 .creteComment(cObj)
                 .then(function(data) {
-                    $location.path('/movie-list');
+                    $location.path('/movie-detail/'+$routeParams.id);
                 }, function(error) {
                     console.log(error);
                 })

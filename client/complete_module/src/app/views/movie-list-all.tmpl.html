@@ -1,29 +1,46 @@
+
 <div class="container">
     <div>
         <a href="#/movie-list/genre/action">Action Movies</a>
         <a href="#/movie-list/genre/drama">Drama Movies</a>
         <a href="#/movie-list/type/movie"/>Movies</a>
         <a href="#/movie-list/type/series"/>Series</a>
-        <a ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
-        <a ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
-        <a ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
-    </div>
-<input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
 
+       </div>
+    <div>
+
+<div style="float:right">
+    <p>Sort By</p>
+    <a class="sort-items" ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
+
+     <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
+    <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
+</p>
+</div>
+<div>
+<input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
+</div>
     <div class="row" >
-        <div class = "col-sm-6 col-md-3" ng-repeat="movie in movieVm.movies.slice(((movieVm.currentPage-1)*movieVm.itemsPerPage), ((movieVm.currentPage)*movieVm.itemsPerPage))| filter:movieVm.searchText" >
+        <div class = "col-sm-6 col-md-3" ng-repeat="movie in movieVm.movies.slice(((movieVm.currentPage-1)*movieVm.itemsPerPage), ((movieVm.currentPage)*movieVm.itemsPerPage))|filter:movieVm.searchText|orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder" >
 
             <div class = "thumbnail">
-                <img ng-src = "images/sport.jpeg" alt = "Generic placeholder thumbnail">
+                <img ng-src = "{{movie.poster}}" alt = "Generic placeholder thumbnail">
             </div>
            <p>
-                <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a>
+              <h2>  <a ng-href="#/movie-detail/{{movie.movieId}}">{{movie.title}}</a></h2>
             </p>
-            <p>  {{movie.released}}
-              {{movie.imdbRating}}
+            <td>  {{movie.released}}</td>
+              <td>{{movie.imdbRating}}</td>
              {{movie.imdbVotes}}{{movie.type}}
             {{movie.movieCast.director}}
-            {{movie.movieCast.actor}}</p>
+            {{movie.movieCast.actor}}
+            </p>
+            <p>
+                <a ng-href="#/movie-detail/{{movie.movieId}}" class = "btn btn-primary" role = "button">
+                    Detail
+                </a>
+
+
             </p>
         </div>
     </div>

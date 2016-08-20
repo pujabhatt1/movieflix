@@ -32,7 +32,7 @@
                           console.log("im here");
 
 
-                    $location.path('/movie-list');
+                    $location.path('/movie-list-all');
                 }, function(error) {
                     console.log(error);
                 })
@@ -44,8 +44,6 @@
                 .logout()
                 .then(function(result) {
                    console.log("log out done");
-
-
                     $location.path('/login');
                 }, function(error) {
                     console.log(error);
@@ -65,6 +63,8 @@
 
 
         }
+
+
 
 
     }

@@ -91,6 +91,12 @@
             controller: 'CommentController',
             controllerAs: 'commentVm'
         })
+        .when('/get-comments/:movieId', {
+            templateUrl: 'app/views/comment-list.tmpl.html',
+            controller: 'CommentController',
+            controllerAs: 'commentVm'
+        })
+
 
         .when('/add-rating/:id/:rating', {
             template: " ",
@@ -103,10 +109,7 @@
             controllerAs: 'movieVm'
         })
         .when('/logout', {
-            /* template: " ",
-           controller: 'AuthController',
-           controllerAs: 'authVm'*/
-          resolve: {
+           resolve: {
               logout: ['authService', function (authService) {
                   authService
                       .logout();

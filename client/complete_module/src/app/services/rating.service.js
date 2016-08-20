@@ -15,7 +15,7 @@
         self.createRating = createRating;
         init();
         function init(){
-            authService.setHeader();
+            authService.authorize();
         }
          function createRating(rating) {
             console.log("inside create");

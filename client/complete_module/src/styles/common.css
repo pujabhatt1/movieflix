@@ -21,16 +21,42 @@ section {
 .form-group label{
     float:left;
     margin-bottom:5px;
+    color:#335FFF;
 }
-input[type=email],input[type=password],input[type=select]{
-    width: 15em;
+input[type=email], input[type=text],input[type=password],input[type=select]{
+    width: 20em;
     margin-bottom:5px;
-    padding:5px;
+    padding:10px;
 
 }
 select,textarea{
     width:20em !important;
+    padding:10px;
 }
 td{
     padding:5px;
+}
+.leftSpace{
+    padding-left:50px;
+}
+a{
+    cursor:pointer;
+    padding:5px;
+}
+.sort-items{
+    padding:5px;
+}
+.sort-items a{
+    text-decoration:none;
+}
+.container h1{
+
+    color:darkcyan;
+}
+.container form{
+    margin:0;
+    margin-left:200px;
+}
+.rating a{
+    color:orange;
 }

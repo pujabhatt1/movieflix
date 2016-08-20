@@ -16,7 +16,7 @@
     self.createUser=createUser;
     init();
     function init(){
-      authService.setHeader();
+      authService.authorize();
     }
 
     function getUsers() {

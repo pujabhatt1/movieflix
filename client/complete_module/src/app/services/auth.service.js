@@ -49,6 +49,7 @@
             $http.defaults.headers.common.Authorization = '';
             localStorageService.set("uId",'');
             localStorageService.set("auth-token",'');
+            localStorageService.set("role",'');
             redirectLogin();
         }
         function redirectLogin(){

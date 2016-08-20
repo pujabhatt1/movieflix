@@ -60,3 +60,15 @@ a{
 .rating a{
     color:orange;
 }
+.navbar-brand {
+    font-size: 22px;
+    float:none;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+    font-weight: bold;
+}
+.navbar-nav > li {
+     margin-top: -10px;
+}

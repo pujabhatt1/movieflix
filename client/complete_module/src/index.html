@@ -23,16 +23,12 @@
   <header>
     <div class="container">
 
-      <nav>
-        <ul class="nav nav-pills" ng-controller="HeaderController as headerVm">
-
-          <li ng-show="headerVm.isLoggedIn()==false">
-            <a href="#/login">Login</a>
-          </li>
-          <li ng-show="headerVm.isLoggedIn()==false">
-            <a href="#/add-user">Sign Up</a>
-          </li>
-
+        <nav class="navbar navbar-inverse" ng-controller="HeaderController as headerVm">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Movieflix</a>
+                    </div>
+        <ul class="nav navbar-nav" >
 
 
             <li ng-show="headerVm.isAdmin()==true">
@@ -42,13 +38,23 @@
                 <a href="#/movie-list">Manage Movies</a>
             </li>
             <li ng-show="headerVm.isLoggedIn()==true">
-                <a href="#/movie-list-all">List all Movies</a>
+                <a href="#/movie-list-all">All Catalogs</a>
             </li>
 
-            <li ng-show="headerVm.isLoggedIn()==true">
-            <a href="#/logout">Log Out</a>
-          </li>
+
         </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="headerVm.isLoggedIn()==false">
+                        <a href="#/login">Login</a>
+                    </li>
+                    <li ng-show="headerVm.isLoggedIn()==false">
+                        <a href="#/add-user">Sign Up</a>
+                    </li>
+                    <li ng-show="headerVm.isLoggedIn()==true">
+                        <a href="#/logout">Log Out</a>
+                    </li>    </ul>
+
+    </div>
       </nav>
     </div>
   </header>

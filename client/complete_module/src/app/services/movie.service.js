@@ -18,6 +18,7 @@
         self.getMovieByField=getMovieByField;
         self.getMovieDetail=getMovieDetail;
         self.getMovieDetailByImdb=getMovieDetailByImdb;
+        self.getAvgMovieRating=getAvgMovieRating;
 
         init();
         function init(){
@@ -52,6 +53,11 @@
         function getMovieDetailByImdb(imdbId) {
             return $http.get(CONFIG.API_HOST + '/movies/detail/'+imdbId)
                 .then(successFn,errorFn);
+        }
+        function getAvgMovieRating(movieId){
+           // http://localhost:8080/apimodule/api/ratings/avg/35fded59-c82f-48f5-8c6c-77b5042af36c
+                return $http.get(CONFIG.API_HOST + '/ratings/avg/'+movieId)
+                    .then(successFn,errorFn);
         }
 
         function createMovie(movie) {

@@ -28,7 +28,7 @@
             }
         }
         function isAdmin(){
-            if (localStorageService.get("role")=="Admin") {
+            if (localStorageService.get("uId").length>0 &&localStorageService.get("role")=="Admin") {
                 return true;
         }
         return false;

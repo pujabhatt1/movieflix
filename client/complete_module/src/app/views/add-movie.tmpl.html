@@ -49,7 +49,7 @@
         <div class="col-sm-9">
             <input type="text" id="imdbId" name="imdbId" placeholder="metaScore" class="form-control" ng-model="movieVm.newMovie.imdbId"  required>
             <div ng-messages="movieForm.imdbId.$error" ng-if="movieForm.imdbId.$dirty">
-                <p ng-message="required" class="error">metaScore  is required</p>
+                <p ng-message="required" class="error">ImdbId  is required</p>
             </div>
         </div>
     </div>
@@ -154,7 +154,7 @@
             <option>Haiti</option>
         </select>
     </div>
-</div> <!-- /.form-group -->
+</div>
 
 <div class="form-group">
     <label for="actor" class="col-sm-3 control-label">Actors</label>
@@ -182,9 +182,10 @@
 
 <div class="form-group">
     <div class="col-sm-3 col-sm-offset-3">
-        <button type="submit" class="btn btn-primary btn-block">Add</button>
+        <button type="submit" class="btn btn-primary btn-block" ng-disabled="movieForm.$invalid">Add</button>
     </div>
 </div>
+    <!-- /.form-group -->
 </form>
 
 </div>

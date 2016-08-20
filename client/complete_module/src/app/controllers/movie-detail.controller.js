@@ -25,6 +25,14 @@
                 }, function(error) {
                     console.log(error);
                 });
+            movieService
+                .getAvgMovieRating($routeParams.id)
+                .then(function(data) {
+                    movieVm.avgRating = data;
+                }, function(error) {
+                    console.log(error);
+                });
+
         }
     }
 })();

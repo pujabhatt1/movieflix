@@ -12,7 +12,7 @@
 
     function RatingController(ratingService,$http,$routeParams,localStorageService,$location) {
         var RatingVm = this;
-        RatingVm.addRating=addRating;
+
        init();
      function init() {
             console.log('rcntrl');

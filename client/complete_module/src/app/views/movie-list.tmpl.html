@@ -1,15 +1,32 @@
 <div class="container">
-<input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li>Browse:</li>
+                <li> <a href="#/movie-list/genre/action">Action</a></li>
+                <li> <a href="#/movie-list/genre/drama">Drama</a></li>
+                <li><a href="#/movie-list/type/movie"/>Top Rated Movies</a></a></li>
+                <li><a href="#/movie-list/type/series"/>Top Rated Series</a></li>
+            </ul>
 
-<div>
-    <a href="#/movie-list/genre/action">Action Movies</a>
-    <a href="#/movie-list/genre/drama">Drama Movies</a>
-    <a href="#/movie-list/type/movie"/>Movies</a>
-    <a href="#/movie-list/type/series"/>Series</a>
-    <a href="">TopratedMovie or series</a>
-    <a ng-click="movieVm.sorter.sortBy='movieCast.director'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Title</a>
-    <a ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
-</div>
+
+
+
+        </div>
+    </nav>
+
+    <div style="float:right">
+        <p>Sort By</p>
+        <a class="sort-items" ng-click="movieVm.sorter.sortBy='released'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">Released</a>
+
+        <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbRating'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbRating</a>
+        <a class="sort-items" ng-click="movieVm.sorter.sortBy='imdbVotes'; movieVm.sorter.sortOrder = !movieVm.sorter.sortOrder;">ImdbVotes</a>
+        </p>
+    </div>
+    <div>
+        <input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
+
+    </div>
 <table class="table table-striped">
     <thead>
     <tr>

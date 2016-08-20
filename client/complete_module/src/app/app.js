@@ -39,7 +39,7 @@
           controller: 'AuthController',
           controllerAs: 'authVm'
         })
-
+            //to show and manage for admin only
         .when('/movie-list', {
           templateUrl: 'app/views/movie-list.tmpl.html',
           controller: 'MovieController',
@@ -118,7 +118,7 @@
       })
 
       .otherwise({
-        redirectTo: '/login'
+        redirectTo: '/movie-list-all'
       });
   }
     moduleRun.$inject = ['$rootScope', '$http', '$location', 'localStorageService'];

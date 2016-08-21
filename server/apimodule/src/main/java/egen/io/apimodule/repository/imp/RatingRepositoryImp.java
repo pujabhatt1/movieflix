@@ -38,7 +38,12 @@ public class RatingRepositoryImp implements RatingRepository {
 	@Override
 	public Rating create(Rating rating) {
 		System.out.println(rating);
+	//	Query  query = em.createQuery("DELETE FROM Rating r where movie_movieId=:pMovieId and user_id=:pUserId");
+		//query.setParameter("pMovieId",rating.getMovie().getMovieId());
+		//query.setParameter("pUserId",rating.getUser().getId());
+
 		em.persist(rating);
+		
 		return rating;
 	}
 

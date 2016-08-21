@@ -25,8 +25,7 @@ import org.hibernate.validator.constraints.Range;
 @NamedQueries({ 
 	@NamedQuery(name = "Rating.findAll", query = "SELECT r FROM Rating r "),
 	@NamedQuery(name = "Rating.findAvgRatingOnMovie", query = "SELECT avg(ratings) as average_rating FROM Rating r where movie_movieId=:pMovieId"),
-	//@NamedQuery(name = "Rating.findRatingByUserOnMovie", query = "SELECT r  FROM Rating r where r.movieId=:pMovieId and r.user_id=:pUserId"),
-
+		
 })
 public class Rating {
 	@Id

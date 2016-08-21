@@ -17,6 +17,11 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 		throws Exception {
 		System.out.println("admin is called before this method");
+		 String method=request.getMethod();
+			if(method.equals("OPTIONS")){
+				System.out.println("mm"+method);
+				 return true;
+			 }else{
 		String AuthHeader = request.getHeader("Authorization");
 		System.out.println("Auth Header"+AuthHeader);
 		String token=null;
@@ -34,6 +39,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 			}
 		//System.out.println("Got request to save data : name:"+request.getParameter("name"));
 		return true;
+	}
 	}
 	
 }

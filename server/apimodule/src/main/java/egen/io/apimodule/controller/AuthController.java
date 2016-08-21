@@ -51,6 +51,7 @@ public class AuthController {
 				authResult.setResult("success");
 				authResult.setToken(token);
 				authResult.setUserId(userId);
+				authResult.setRole(role);
 			   return authResult;
 		}
 			else{

@@ -26,13 +26,13 @@
         }
 
         function getRoles() {
-            return $http.get('http://localhost:8080/apimodule/api/roles')
+            return $http.get(CONFIG.API_HOST+'/roles')
                 .then(successFn, errorFn);
         }
 
         function createUser(user) {
             console.log(user);
-            return $http.post('http://localhost:8080/apimodule/api/signup', user)
+            return $http.post(CONFIG.API_HOST+'/signup', user)
                 .then(successFn, errorFn);
         }
 

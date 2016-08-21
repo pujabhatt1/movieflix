@@ -16,7 +16,6 @@
         init();
 
         function init() {
-            console.log('Inside header controller');
 
         }
 
@@ -24,9 +23,9 @@
             if (localStorageService.get("uId").length > 0) {
                 return true;
             }
-            else {
+
                 return false;
-            }
+
         }
 
         function isAdmin() {

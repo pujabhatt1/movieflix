@@ -11,13 +11,13 @@
     MovieDetailController.$inject = ['movieService', '$routeParams'];
 
     function MovieDetailController(movieService, $routeParams) {
-        console.log("mdetail");
+
         var movieVm = this;
         movieVm.avgRating = "NA";
         init();
 
         function init() {
-            console.log("in mcnt");
+
             movieService
                 .getMovieDetail($routeParams.id)
                 .then(function (data) {

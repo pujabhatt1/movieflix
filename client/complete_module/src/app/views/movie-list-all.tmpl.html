@@ -28,7 +28,7 @@
         <input type="text" class="form-control" placeholder="Search Here..." ng-model="movieVm.searchText">
     </div>
     <div class="row">
-        <div class="col-sm-6 col-md-3 box"
+        <div class="col-sm-3 col-md-3 box"
              ng-repeat="movie in movieVm.movies.slice(((movieVm.currentPage-1)*movieVm.itemsPerPage), ((movieVm.currentPage)*movieVm.itemsPerPage))|filter:movieVm.searchText|orderBy:movieVm.sorter.sortBy: movieVm.sorter.sortOrder">
 
             <div class="thumbnail">

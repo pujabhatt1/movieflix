@@ -29,10 +29,6 @@
             authService
                 .checkUser(authVm.logUser)
                 .then(function (result) {
-                    console.log(result);
-                    console.log("im here");
-
-
                     $location.path('/movie-list-all');
                 }, function (error) {
                     console.log(error);

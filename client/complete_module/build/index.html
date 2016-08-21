@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="movieflix">
 <head>
-  <meta charset="UTF-8">
-  <title>ui-seed</title>
+    <meta charset="UTF-8">
+    <title>ui-seed</title>
 
-  <!-- bower:css -->
-  <link rel="stylesheet" href="/bower_components/min/entireframework.min.css">
-  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-  <!-- endinject -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/min/entireframework.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endinject -->
 
-  <!-- vendor:css -->
-  <!-- endinject -->
+    <!-- vendor:css -->
+    <!-- endinject -->
 
-  <!-- inject:css -->
-  <link rel="stylesheet" href="styles/common.css">
-  <link rel="stylesheet" href="styles/users.css">
-  <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/users.css">
+    <!-- endinject -->
 
-  <!-- app:css -->
-  <!-- endinject -->
+    <!-- app:css -->
+    <!-- endinject -->
 
 </head>
 <body>
 
 
-  <header>
+<header>
     <div class="container">
 
         <nav class="navbar navbar-inverse" ng-controller="HeaderController as headerVm">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Movieflix</a>
-                    </div>
-        <ul class="nav navbar-nav" >
+                </div>
+                <ul class="nav navbar-nav">
 
 
-            <li ng-show="headerVm.isAdmin()==true">
-                <a href="#/add-movie">Add New Movie</a>
-            </li>
-            <li ng-show="headerVm.isAdmin()==true">
-                <a href="#/movie-list">Manage Movies</a>
-            </li>
-            <li ng-show="headerVm.isLoggedIn()==true">
-                <a href="#/movie-list-all">All Catalogs</a>
-            </li>
+                    <li ng-show="headerVm.isAdmin()==true">
+                        <a href="#/add-movie">Add New Movie</a>
+                    </li>
+                    <li ng-show="headerVm.isAdmin()==true">
+                        <a href="#/movie-list">Manage Movies</a>
+                    </li>
+                    <li ng-show="headerVm.isLoggedIn()==true">
+                        <a href="#/movie-list-all">All Catalogs</a>
+                    </li>
 
 
-        </ul>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-show="headerVm.isLoggedIn()==false">
                         <a href="#/login">Login</a>
@@ -56,53 +56,54 @@
                     </li>
                     <li ng-show="headerVm.isLoggedIn()==true">
                         <a href="#/logout">Log Out</a>
-                    </li>    </ul>
+                    </li>
+                </ul>
 
+            </div>
+        </nav>
     </div>
-      </nav>
-    </div>
-  </header>
-  <section ng-view>
+</header>
+<section ng-view>
 
-  </section>
-  <footer>
+</section>
+<footer>
     <div class="container">
-      &copy; Egen Solutions, Inc.
+        &copy; Egen Solutions, Inc.
     </div>
-  </footer>
+</footer>
 
-  <!-- bower:js -->
-  <script src="/bower_components/angular/angular.js"></script>
-  <script src="/bower_components/angular-route/angular-route.js"></script>
-  <script src="/bower_components/angular-messages/angular-messages.js"></script>
-  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-  <!-- endinject -->
+<!-- bower:js -->
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-messages/angular-messages.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+<!-- endinject -->
 
-  <!-- vendor:js -->
-  <!-- endinject -->
+<!-- vendor:js -->
+<!-- endinject -->
 
-  <!-- inject:js -->
-  <script src="app/app.js"></script>
-  <script src="app/services/user.service.js"></script>
-  <script src="app/services/rating.service.js"></script>
-  <script src="app/services/movie.service.js"></script>
-  <script src="app/services/comment.service.js"></script>
-  <script src="app/services/auth.service.js"></script>
-  <script src="app/directives/confirm-password.js"></script>
-  <script src="app/controllers/users.controller.js"></script>
-  <script src="app/controllers/user-detail.controller.js"></script>
-  <script src="app/controllers/rating.controller.js"></script>
-  <script src="app/controllers/movie.controller.js"></script>
-  <script src="app/controllers/movie-update.controller.js"></script>
-  <script src="app/controllers/movie-detail.controller.js"></script>
-  <script src="app/controllers/header.controller.js"></script>
-  <script src="app/controllers/comments.controller.js"></script>
-  <script src="app/controllers/auth.controller.js"></script>
-  <script src="app/app.constant.js"></script>
-  <!-- endinject -->
+<!-- inject:js -->
+<script src="app/app.js"></script>
+<script src="app/directives/confirm-password.js"></script>
+<script src="app/services/user.service.js"></script>
+<script src="app/services/rating.service.js"></script>
+<script src="app/services/movie.service.js"></script>
+<script src="app/services/comment.service.js"></script>
+<script src="app/services/auth.service.js"></script>
+<script src="app/controllers/users.controller.js"></script>
+<script src="app/controllers/user-detail.controller.js"></script>
+<script src="app/controllers/rating.controller.js"></script>
+<script src="app/controllers/movie.controller.js"></script>
+<script src="app/controllers/movie-update.controller.js"></script>
+<script src="app/controllers/movie-detail.controller.js"></script>
+<script src="app/controllers/header.controller.js"></script>
+<script src="app/controllers/comments.controller.js"></script>
+<script src="app/controllers/auth.controller.js"></script>
+<script src="app/app.constant.js"></script>
+<!-- endinject -->
 
-  <!-- app:js -->
-  <!-- endinject -->
+<!-- app:js -->
+<!-- endinject -->
 </body>
 </html>

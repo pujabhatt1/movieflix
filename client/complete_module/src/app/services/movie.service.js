@@ -22,8 +22,7 @@
 
         init();
         function init() {
-            console.log("in movieservie");
-            authService.authorize();
+                authService.authorize();
         }
 
         function getAllMovies() {
@@ -66,19 +65,19 @@
 
         function createMovie(movie) {
             console.log(movie);
-            return $http.post('http://localhost:8080/apimodule/api/admin', movie)
+            return $http.post(CONFIG.API_HOST +'/admin', movie)
                 .then(successFn, errorFn);
         }
 
         function deleteMovie(id) {
             console.log(id);
-            return $http.delete('http://localhost:8080/apimodule/api/admin/' + id)
+            return $http.delete(CONFIG.API_HOST +'/admin/' + id)
                 .then(successFn, errorFn);
         }
 
         function editMovie(id, movie) {
             console.log(movie);
-            return $http.put('http://localhost:8080/apimodule/api/admin/' + id, movie)
+            return $http.put(CONFIG.API_HOST +'/admin/' + id, movie)
                 .then(successFn, errorFn);
         }
 

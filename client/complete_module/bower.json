@@ -1,0 +1,41 @@
+{
+  "name": "complete_module",
+  "description": "new project complete front and back",
+  "main": "index.js",
+  "authors": [
+    "puja"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pujabhatt1/movieflix",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.6",
+    "angular-route": "^1.5.8",
+    "angular-messages": "^1.5.8",
+    "angular-bootstrap": "^0.14.3",
+    "min": "*",
+    "angular-local-storage": "^0.4.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "jquery": {
+      "main": []
+    }
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

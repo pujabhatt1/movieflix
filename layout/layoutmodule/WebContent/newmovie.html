@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>New Movie</title>
+
+<!-- Bootstrap core CSS -->
+<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="assets/css/ie10-viewport-bug-workaround.css"
+	rel="stylesheet">
+  <link href="css/datepicker.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+
+<link href="navbar-fixed-top.css" rel="stylesheet">
+<!-- Custom styles  -->
+<link href="css/style.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="container nav-container">
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">MovieFlix</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Browse <span class="caret"></span></a>
+						 <ul class="dropdown-menu">
+               
+                 <li><a href="newmovie.html">Add New Movie</a></li>
+                 <li><a href="searchpage.html">All Movies</a></li>
+                <li><a href="searchpage.html">Top rated movies</a></li>
+                <li><a href="searchpage.html">Top rated tv series</a></li>
+                	<li><a href="list_edit_movies.html">Edit/Delete Movie</a></li>
+							
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Miscellenious</li>
+                 <li><a href="http://www.google.com">Google</a></li>
+              </ul>
+						
+						</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html">Log out</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+</div>
+<div class="container add-form">
+            <form class="form-horizontal" role="form" data-toggle="validator">
+                <h2>New Movie</h2>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Title</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="firstName" placeholder="Movie title" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="Language" class="col-sm-3 control-label">Language</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="language" placeholder="Languages" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="poster" class="col-sm-3 control-label">Poster</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="poster" placeholder="poster" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="plot" class="col-sm-3 control-label">Plot</label>
+                    <div class="col-sm-9">
+                  <textarea class="form-control" rows="3"></textarea>
+                          <span class="help-block"></span>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Genre</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="lastName" placeholder="genre" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="imdbRating" class="col-sm-3 control-label">ImdbRating</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="imdbRating" placeholder="imdbRating" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+              
+         <div class="form-group">
+                    <label for="metaScore" class="col-sm-3 control-label">Metascore</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="metaScore" placeholder="metaScore" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                   <div class="form-group">
+                    <label for="awards" class="col-sm-3 control-label">Awards</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="awards" placeholder="awards" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="type" class="col-sm-3 control-label">Type</label>
+                    <div class="col-sm-9">
+                        <select id="type" class="form-control">
+                            <option value="move">Movie</option>
+                            <option value="series">Series</option>
+                        </select>
+                    </div>
+                </div> <!-- /.form-group -->
+                  <div class="form-group">
+                    <label for="run-time" class="col-sm-3 control-label">RunTime</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="run-time" placeholder="run-time" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label for="run-time" class="col-sm-3 control-label">Released</label>
+                    <div class="col-sm-9">
+                <input type="text" id="released" class="datepicker" />
+                         <span class="help-block"></span>
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label for="year" class="col-sm-3 control-label">Year</label>
+                    <div class="col-sm-9">
+                <input type="text" id="year" class="datepicker" />
+                         <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="country" class="col-sm-3 control-label">Country</label>
+                    <div class="col-sm-9">
+                        <select id="country" class="form-control">
+                            <option>United States</option>
+                            <option></option>
+                            <option>Cambodia</option>
+                            <option>Denmark</option>
+                            <option>Ecuador</option>
+                            <option>Fiji</option>
+                            <option>Gabon</option>
+                            <option>Haiti</option>
+                        </select>
+                    </div>
+                </div> <!-- /.form-group -->
+              
+                  <div class="form-group">
+                    <label for="actors" class="col-sm-3 control-label">Actors</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="actors" placeholder="actors" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+            <div class="form-group">
+                    <label for="directors" class="col-sm-3 control-label">Directors</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="directors" placeholder="directors" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label for="writers" class="col-sm-3 control-label">Writers</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="writers" placeholder="writers" class="form-control" required autofocus>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+          
+        
+        
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" class="btn btn-primary btn-block">Add</button>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+        
+   
+<script src="js/searchpage.js"></script>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+	<script src="dist/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+	
+	
+	 <script>
+     $(function () {
+    	 $('.datepicker').datepicker( {
+    		    format: 'yyyy',
+    		    viewMode: 'years',
+    		    minViewMode: 'years'
+    		  });
+          // $('#datetimepicker1').datetimepicker();
+     });
+ </script>
+
+</body>
+</html>
